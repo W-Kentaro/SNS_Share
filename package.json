@@ -1,0 +1,53 @@
+{
+  "name": "dev-template-gulp",
+  "version": "0.0.9",
+  "description": "Development environment for web site development",
+  "keywords": "web gulp template",
+  "author": "yama-dev",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm install && gulp",
+    "develop": "gulp",
+    "release": "gulp release",
+    "update:check": "npm outdated"
+  },
+  "engines": {
+    "node": ">=4.8.7 <=10.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yama-dev/dev-template-gulp"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.6.3",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.4",
+    "css-mqpacker": "^6.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-eslint": "^4.0.2",
+    "gulp-htmlhint": "^2.1.1",
+    "gulp-ignore": "^2.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-uglify": "^3.0.1",
+    "htmlhint-stylish": "^1.0.3",
+    "pixrem": "^4.0.1",
+    "postcss-opacity": "^5.0.0",
+    "run-sequence": "^2.2.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
