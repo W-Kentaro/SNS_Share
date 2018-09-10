@@ -13,18 +13,18 @@
   <meta property="og:description" content="説明文">
   <meta property="og:type" content="website">
   <meta property="og:image" content="">
-  <meta property="og:url" content="URL">
+  <meta property="og:url" content="https://w-kentaro.github.io/ShareTextEmbedded/src">
   <meta name="twitter:app:country" content="JP">
   <meta name="twitter:title" content="ShareTextEmbedded">
   <meta name="twitter:description" content="説明文">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="">
   <meta name="twitter:site" content="@">
-  <meta name="twitter:url" content="URL">
+  <meta name="twitter:url" content="https://w-kentaro.github.io/ShareTextEmbedded/src">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="mobile-web-app-capable" content="no">
-  <link rel="canonical" href="サイトURL">
+  <link rel="canonical" href="サイトhttps://w-kentaro.github.io/ShareTextEmbedded/src">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/icon.png">
 </head>
@@ -35,15 +35,32 @@
   <h1>ShareTextEmbedded</h1>
 
   <ul>
-    <li><a href="" target="_blank" data-share="twitter">Twitterシェアテキスト</a></li>
-    <li><a href="" target="_blank" data-share="facebook">facebookシェアテキスト</a></li>
+    <li>
+      <a href="" target="_blank" data-share="twitter">Twitterシェアテキスト</a>
+    </li>
+    <li>
+      <a href="" target="_blank" data-share="facebook">facebookシェアテキスト</a>
+    </li>
     <li><a href="" target="_blank" data-share="line">LINEシェアテキスト</a></li>
   </ul>
-
 
 </div>
 
 <script src="./ShareTextEmbedded.js"></script>
-
+<script>
+  var ShareText = new ShareTextEmbedded({
+    url: '',
+    twitter: {
+      text: 'Twitterのシェア文です。\nTwitterのシェア文です。改行も可能です。',
+      hash: '', // 複数の場合はカンマで区切る
+    },
+    facebook: {
+      text: 'facebookのシェア文です。',
+    },
+    line: {
+      text: 'LINEの\nシェア文です。',
+    }
+  });
+</script>
 </body>
 </html>
