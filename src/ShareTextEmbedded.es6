@@ -67,7 +67,7 @@ class ShareTextEmbedded{
     this.Embed(this.line.elem, 'line');
   }
   Embed(e, sns) {
-    let item = document.querySelectorAll(e);
+    const item = document.querySelectorAll(e);
     for(let i = 0; i < item.length; i++){
       if(sns === 'twitter'){
         item[i].setAttribute(`href`, this.shareText.twitter);
