@@ -29,7 +29,21 @@
   <link rel="apple-touch-icon" href="/icon.png">
 </head>
 <body>
-
+<script>
+  var share = {
+    url: '',
+    twitter: {
+      text: 'Twitterのシェア文です。\nTwitterのシェア文です。改行も可能です。',
+      hash: '', // 複数の場合はカンマで区切る
+    },
+    facebook: {
+      text: 'facebookのシェア文です。',
+    },
+    line: {
+      text: 'LINEの\nシェア文です。',
+    }
+  };
+</script>
 <div class="l-wrap">
 
   <h1>ShareTextEmbedded</h1>
@@ -47,20 +61,6 @@
 </div>
 
 <script src="./ShareTextEmbedded.js"></script>
-<script>
-  var ShareText = new ShareTextEmbedded({
-    url: '',
-    twitter: {
-      text: 'Twitterのシェア文です。\nTwitterのシェア文です。改行も可能です。',
-      hash: '', // 複数の場合はカンマで区切る
-    },
-    facebook: {
-      text: 'facebookのシェア文です。',
-    },
-    line: {
-      text: 'LINEの\nシェア文です。',
-    }
-  });
-</script>
+
 </body>
 </html>

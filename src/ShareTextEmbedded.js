@@ -17,15 +17,18 @@ var ShareTextEmbedded = function () {
 
     this.url = data.url || ogURL;
     this.twitter = {
+      elem: data.twitter.elem || '[data-share="twitter"]',
       url: data.twitter.url || this.url,
       text: data.twitter.text,
       hash: data.twitter.hash || false
     };
     this.facebook = {
+      elem: data.facebook.elem || '[data-share="facebook"]',
       url: data.facebook.url || this.url,
       text: data.facebook.text
     };
     this.line = {
+      elem: data.line.elem || '[data-share="line"]',
       url: data.line.url || this.url,
       text: data.line.text,
       onlyText: data.onlyText || false
@@ -44,7 +47,7 @@ var ShareTextEmbedded = function () {
       this.url = encodeURIComponent(this.url);
       this.twitter.url = encodeURIComponent(this.twitter.url);
       this.twitter.text = encodeURIComponent(this.twitter.text);
-      this.twitter.hash = encodeURIComponent(this.twitter.hash);
+      this.twitter.hash = this.twitter.hash ? encodeURIComponent(this.twitter.hash) : this.twitter.hash;
       this.facebook.url = encodeURIComponent(this.facebook.url);
       this.facebook.text = encodeURIComponent(this.facebook.text);
       this.line.url = encodeURIComponent(this.line.url);
@@ -61,21 +64,23 @@ var ShareTextEmbedded = function () {
         line: this.line.onlyText ? 'http://line.me/R/msg/text/?' + this.line.text : 'http://line.me/R/msg/text/?' + this.line.text + '%20' + this.line.url
       };
 
-      this.Embed();
+      this.Embed(this.twitter.elem, 'twitter');
+      this.Embed(this.facebook.elem, 'facebook');
+      this.Embed(this.line.elem, 'line');
     }
   }, {
     key: 'Embed',
-    value: function Embed() {
-      var item = document.querySelectorAll('[data-share]');
+    value: function Embed(e, sns) {
+      var item = document.querySelectorAll(e);
       for (var _i = 0; _i < item.length; _i++) {
         var data = item[_i].getAttribute('data-share');
-        if (data === 'twitter') {
+        if (sns === 'twitter') {
           item[_i].setAttribute('href', this.shareText.twitter);
         }
-        if (data === 'facebook') {
+        if (sns === 'facebook') {
           item[_i].setAttribute('href', this.shareText.facebook);
         }
-        if (data === 'line') {
+        if (sns === 'line') {
           item[_i].setAttribute('href', this.shareText.line);
         }
       }
@@ -91,5 +96,6 @@ var ShareTextEmbedded = function () {
 }();
 
 document.addEventListener("DOMContentLoaded", function () {
+  var ShareText = new ShareTextEmbedded(share);
   ShareText.Default();
 });
