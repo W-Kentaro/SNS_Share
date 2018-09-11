@@ -4,42 +4,43 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var GetOG = {
-  url: '',
-  description: '',
-  Get: function Get() {
-    for (var i = 0; i < document.head.children.length; i++) {
-      if (document.head.children[i].getAttribute('property') === 'og:url') {
-        this.url = document.head.children[i].getAttribute('content');
-      }
-      if (document.head.children[i].getAttribute('property') === 'og:description') {
-        this.description = document.head.children[i].getAttribute('content');
-      }
-    }
-  }
-};
-
 var ShareTextEmbedded = function () {
   function ShareTextEmbedded(data) {
     _classCallCheck(this, ShareTextEmbedded);
 
-    this.url = data.url || GetOG.url;
-    this.description = data.description || GetOG.description;
+    this.GetOG = {
+      url: '',
+      description: '',
+      Get: function Get() {
+        for (var i = 0; i < document.head.children.length; i++) {
+          if (document.head.children[i].getAttribute('property') === 'og:url') {
+            this.url = document.head.children[i].getAttribute('content');
+          }
+          if (document.head.children[i].getAttribute('property') === 'og:description') {
+            this.description = document.head.children[i].getAttribute('content');
+          }
+        }
+      }
+    };
+    this.GetOG.Get();
+
+    this.url = data.url || this.GetOG.url;
+    this.text = data.text || this.GetOG.description;
     this.twitter = {
       elem: data.twitter.elem || '[data-share="twitter"]',
       url: data.twitter.url || this.url,
-      text: data.twitter.text || this.description,
+      text: data.twitter.text || this.text,
       hash: data.twitter.hash || false
     };
     this.facebook = {
       elem: data.facebook.elem || '[data-share="facebook"]',
       url: data.facebook.url || this.url,
-      text: data.facebook.text || this.description
+      text: data.facebook.text || this.text
     };
     this.line = {
       elem: data.line.elem || '[data-share="line"]',
       url: data.line.url || this.url,
-      text: data.line.text || this.description,
+      text: data.line.text || this.text,
       onlyText: data.line.onlyText || false
     };
 
@@ -98,7 +99,3 @@ var ShareTextEmbedded = function () {
 
   return ShareTextEmbedded;
 }();
-
-document.addEventListener("DOMContentLoaded", function () {
-  GetOG.Get();
-});
