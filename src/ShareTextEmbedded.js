@@ -73,7 +73,6 @@ var ShareTextEmbedded = function () {
     value: function Embed(e, sns) {
       var item = document.querySelectorAll(e);
       for (var _i = 0; _i < item.length; _i++) {
-        var data = item[_i].getAttribute('data-share');
         if (sns === 'twitter') {
           item[_i].setAttribute('href', this.shareText.twitter);
         }

@@ -23,7 +23,7 @@ class ShareTextEmbedded{
       elem: data.line.elem || `[data-share="line"]`,
       url: data.line.url || this.url,
       text: data.line.text,
-      onlyText: data.onlyText || false,
+      onlyText: data.line.onlyText || false,
     };
 
     this.shareText = {
@@ -58,7 +58,6 @@ class ShareTextEmbedded{
   Embed(e, sns) {
     let item = document.querySelectorAll(e);
     for(let i = 0; i < item.length; i++){
-      let data = item[i].getAttribute(`data-share`);
       if(sns === 'twitter'){
         item[i].setAttribute(`href`, this.shareText.twitter);
       }
