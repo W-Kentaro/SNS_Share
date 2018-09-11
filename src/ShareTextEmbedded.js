@@ -4,34 +4,43 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ogURL = void 0;
-for (var i = 0; i < document.head.children.length; i++) {
-  if (document.head.children[i].getAttribute('property') === 'og:url') {
-    ogURL = document.head.children[i].getAttribute('content');
+var GetOG = {
+  url: '',
+  description: '',
+  Get: function Get() {
+    for (var i = 0; i < document.head.children.length; i++) {
+      if (document.head.children[i].getAttribute('property') === 'og:url') {
+        this.url = document.head.children[i].getAttribute('content');
+      }
+      if (document.head.children[i].getAttribute('property') === 'og:description') {
+        this.description = document.head.children[i].getAttribute('content');
+      }
+    }
   }
-}
+};
 
 var ShareTextEmbedded = function () {
   function ShareTextEmbedded(data) {
     _classCallCheck(this, ShareTextEmbedded);
 
-    this.url = data.url || ogURL;
+    this.url = data.url || GetOG.url;
+    this.description = data.description || GetOG.description;
     this.twitter = {
       elem: data.twitter.elem || '[data-share="twitter"]',
       url: data.twitter.url || this.url,
-      text: data.twitter.text,
+      text: data.twitter.text || this.description,
       hash: data.twitter.hash || false
     };
     this.facebook = {
       elem: data.facebook.elem || '[data-share="facebook"]',
       url: data.facebook.url || this.url,
-      text: data.facebook.text
+      text: data.facebook.text || this.description
     };
     this.line = {
       elem: data.line.elem || '[data-share="line"]',
       url: data.line.url || this.url,
-      text: data.line.text,
-      onlyText: data.onlyText || false
+      text: data.line.text || this.description,
+      onlyText: data.line.onlyText || false
     };
 
     this.shareText = {
@@ -39,6 +48,7 @@ var ShareTextEmbedded = function () {
       facebook: '',
       line: ''
     };
+    this.Encode();
   }
 
   _createClass(ShareTextEmbedded, [{
@@ -72,22 +82,17 @@ var ShareTextEmbedded = function () {
     key: 'Embed',
     value: function Embed(e, sns) {
       var item = document.querySelectorAll(e);
-      for (var _i = 0; _i < item.length; _i++) {
+      for (var i = 0; i < item.length; i++) {
         if (sns === 'twitter') {
-          item[_i].setAttribute('href', this.shareText.twitter);
+          item[i].setAttribute('href', this.shareText.twitter);
         }
         if (sns === 'facebook') {
-          item[_i].setAttribute('href', this.shareText.facebook);
+          item[i].setAttribute('href', this.shareText.facebook);
         }
         if (sns === 'line') {
-          item[_i].setAttribute('href', this.shareText.line);
+          item[i].setAttribute('href', this.shareText.line);
         }
       }
-    }
-  }, {
-    key: 'Default',
-    value: function Default() {
-      this.Encode();
     }
   }]);
 
@@ -95,6 +100,5 @@ var ShareTextEmbedded = function () {
 }();
 
 document.addEventListener("DOMContentLoaded", function () {
-  var ShareText = new ShareTextEmbedded(share);
-  ShareText.Default();
+  GetOG.Get();
 });

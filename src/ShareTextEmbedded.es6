@@ -1,28 +1,37 @@
-let ogURL;
-for(let i = 0; i < document.head.children.length; i++){
-  if(document.head.children[i].getAttribute('property') === 'og:url'){
-    ogURL = document.head.children[i].getAttribute('content');
+const GetOG = {
+  url: '',
+  description: '',
+  Get: function () {
+    for(let i = 0; i < document.head.children.length; i++){
+      if(document.head.children[i].getAttribute('property') === 'og:url'){
+        this.url = document.head.children[i].getAttribute('content');
+      }
+      if(document.head.children[i].getAttribute('property') === 'og:description'){
+        this.description = document.head.children[i].getAttribute('content');
+      }
+    }
   }
-}
+};
 
 class ShareTextEmbedded{
   constructor(data) {
-    this.url = data.url || ogURL;
+    this.url = data.url || GetOG.url;
+    this.description = data.description || GetOG.description;
     this.twitter = {
       elem: data.twitter.elem || `[data-share="twitter"]`,
       url: data.twitter.url || this.url,
-      text: data.twitter.text,
+      text: data.twitter.text || this.description,
       hash: data.twitter.hash || false,
     };
     this.facebook = {
       elem: data.facebook.elem || `[data-share="facebook"]`,
       url: data.facebook.url || this.url,
-      text: data.facebook.text,
+      text: data.facebook.text || this.description,
     };
     this.line = {
       elem: data.line.elem || `[data-share="line"]`,
       url: data.line.url || this.url,
-      text: data.line.text,
+      text: data.line.text || this.description,
       onlyText: data.line.onlyText || false,
     };
 
@@ -30,7 +39,8 @@ class ShareTextEmbedded{
       twitter: '',
       facebook: '',
       line: '',
-    }
+    };
+    this.Encode();
   }
   Encode() {
     this.url = encodeURIComponent(this.url);
@@ -69,12 +79,8 @@ class ShareTextEmbedded{
       }
     }
   }
-  Default() {
-    this.Encode();
-  }
 }
 document.addEventListener("DOMContentLoaded", () => {
-  var ShareText = new ShareTextEmbedded(share);
-  ShareText.Default();
+  GetOG.Get();
 });
 
