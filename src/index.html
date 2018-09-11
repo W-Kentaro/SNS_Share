@@ -27,6 +27,7 @@
   <link rel="canonical" href="サイトhttps://w-kentaro.github.io/ShareTextEmbedded/src">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/icon.png">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </head>
 <body>
 <script>
@@ -47,6 +48,24 @@
 <div class="l-wrap">
 
   <h1>ShareTextEmbedded</h1>
+
+  <pre class="prettyprint lang-js">
+    <code>
+    var share = {
+      url: '',
+      twitter: {
+        text: 'Twitterのシェア文です。\n改行も可能です。',
+        hash: '', // 複数の場合はカンマで区切る
+      },
+      facebook: {
+        text: 'facebookのシェア文です。',
+      },
+      line: {
+        text: 'LINEの\nシェア文です。',
+      }
+    };
+    </code>
+  </pre>
 
   <ul>
     <li>
