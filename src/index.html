@@ -66,8 +66,9 @@
   <h2>HTMLに直接書き込む場合</h2>
   <pre class="prettyprint lang-js">
     <code>
+    // htmlにstyleタグで記述
     var share = {
-      url: '',
+      url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
       twitter: {
         text: 'Twitterのシェア文です。\n改行も可能です。',
         hash: '',
@@ -79,6 +80,9 @@
         text: 'LINEの\nシェア文です。',
       }
     };
+
+    // jsファイルに記述
+    var ShareText01 = new ShareTextEmbedded(share);
     </code>
   </pre>
 
@@ -91,10 +95,37 @@
     </li>
     <li><a href="" target="_blank" data-share="line">LINEシェアテキスト</a></li>
   </ul>
-
+  <hr>
+  <h2>JSファイルに書き込む場合</h2>
+  <pre class="prettyprint lang-js">
+    <code>
+    var ShareText02 = new ShareTextEmbedded({
+      url: '',
+      text: 'ShareTextEmbeddedはシェア文を自動でエンコードしてリンクを埋め込む関数です。',
+      twitter: {
+        elem: '.js-share-twitter',
+        hash: 'ShareTextEmbedded',
+      },
+      facebook: {
+        elem: '.js-share-facebook',
+      },
+      line: {
+        elem: '.js-share-line',
+      }
+    });
+    </code>
+  </pre>
+  <ul class="share-list">
+    <li>
+      <a href="" target="_blank" class="js-share-twitter">Twitterシェアテキスト</a>
+    </li>
+    <li>
+      <a href="" target="_blank" class="js-share-facebook">facebookシェアテキスト</a>
+    </li>
+    <li><a href="" target="_blank" class="js-share-line">LINEシェアテキスト</a></li>
+  </ul>
 </div>
 
-<hr>
 
 <script src="./ShareTextEmbedded.js"></script>
 <script src="./samplePage.js"></script>
