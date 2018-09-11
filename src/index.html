@@ -7,16 +7,16 @@
   <!-- noindex,nofollow --><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
   <title>ShareTextEmbedded</title>
   <meta name="keywords" content="キーワード">
-  <meta name="description" content="説明文">
+  <meta name="description" content="SNSのシェアリンクを自動でエンコードしてリンクを生成します。">
   <meta property="og:site_name" content="ShareTextEmbedded">
   <meta property="og:title" content="ShareTextEmbedded">
-  <meta property="og:description" content="説明文">
+  <meta property="og:description" content="SNSのシェアリンクを自動でエンコードしてリンクを生成します。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="">
   <meta property="og:url" content="https://w-kentaro.github.io/ShareTextEmbedded/src">
   <meta name="twitter:app:country" content="JP">
   <meta name="twitter:title" content="ShareTextEmbedded">
-  <meta name="twitter:description" content="説明文">
+  <meta name="twitter:description" content="SNSのシェアリンクを自動でエンコードしてリンクを生成します。">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="">
   <meta name="twitter:site" content="@">
@@ -24,10 +24,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="mobile-web-app-capable" content="no">
-  <link rel="canonical" href="サイトhttps://w-kentaro.github.io/ShareTextEmbedded/src">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/icon.png">
-  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="samplePage.css">
+  <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script async defer src="//buttons.github.io/buttons.js"></script>
+
 </head>
 <body>
 <script>
@@ -45,17 +45,32 @@
     }
   };
 </script>
-<div class="l-wrap">
+<div class="wrap">
 
-  <h1>ShareTextEmbedded</h1>
+  <h1>Share Text Embedded</h1>
 
+  <ul class="github-list">
+    <li>
+      <a class="github-button" href="https://github.com/W-Kentaro" aria-label="Follow @W-Kentaro on GitHub">Follow @W-Kentaro</a>
+    </li>
+    <li>
+      <a class="github-button" href="https://github.com/W-Kentaro/ShareTextEmbedded" data-icon="octicon-star" aria-label="Star W-Kentaro/ShareTextEmbedded on GitHub">Star</a>
+    </li>
+    <li>
+      <a class="github-button" href="https://github.com/W-Kentaro/ShareTextEmbedded/fork" data-icon="octicon-repo-forked" aria-label="Fork W-Kentaro/ShareTextEmbedded on GitHub">Fork</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>HTMLに直接書き込む場合</h2>
   <pre class="prettyprint lang-js">
     <code>
     var share = {
       url: '',
       twitter: {
         text: 'Twitterのシェア文です。\n改行も可能です。',
-        hash: '', // 複数の場合はカンマで区切る
+        hash: '',
       },
       facebook: {
         text: 'facebookのシェア文です。',
@@ -67,7 +82,7 @@
     </code>
   </pre>
 
-  <ul>
+  <ul class="share-list">
     <li>
       <a href="" target="_blank" data-share="twitter">Twitterシェアテキスト</a>
     </li>
@@ -79,7 +94,10 @@
 
 </div>
 
+<hr>
+
 <script src="./ShareTextEmbedded.js"></script>
+<script src="./samplePage.js"></script>
 
 </body>
 </html>

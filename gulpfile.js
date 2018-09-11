@@ -104,7 +104,7 @@ gulp.task('sass', function () {
       pixrem(),
       postcssOpacity()
     ]))
-    .pipe(gulp.dest(CONFIG.outputDirectory.dist))
+    .pipe(gulp.dest(CONFIG.outputDirectory.dev))
     .pipe(browserSync.reload({stream: true}));
 });
 
