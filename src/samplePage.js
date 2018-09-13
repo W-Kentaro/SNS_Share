@@ -1,6 +1,5 @@
 'use strict';
 
-
 var ShareText01 = new ShareTextEmbedded(share);
 var ShareText02 = new ShareTextEmbedded({
   url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
@@ -8,6 +7,7 @@ var ShareText02 = new ShareTextEmbedded({
   twitter: {
     elem: '.js-share-twitter',
     hash: 'ShareTextEmbedded',
+    via: 'twitterjp',
   },
   facebook: {
     elem: '.js-share-facebook',
