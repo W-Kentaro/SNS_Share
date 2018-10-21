@@ -35,7 +35,7 @@
     url: '',
     twitter: {
       text: 'Twitterのシェア文です。\nTwitterのシェア文です。改行も可能です。',
-      hash: '', // 複数の場合はカンマで区切る
+      hash: 'サンプル', // 複数の場合はカンマで区切る
     },
     facebook: {
       text: 'facebookのシェア文です。',
@@ -45,6 +45,7 @@
     }
   };
 </script>
+
 <div class="wrap">
 
   <h1>Share Text Embedded</h1>
@@ -60,6 +61,24 @@
       <a class="github-button" href="https://github.com/W-Kentaro/ShareTextEmbedded/fork" data-icon="octicon-repo-forked" aria-label="Fork W-Kentaro/ShareTextEmbedded on GitHub">Fork</a>
     </li>
   </ul>
+
+  <hr>
+
+  <h2>data-shareに入れたSNSに対応するhrefを吐き出します</h2>
+
+  <textarea name="" id="" cols="100" rows="15">
+      <ul class="share-list">
+        <li>
+          <a href="" target="_blank" data-share="twitter">Twitterシェアテキスト</a>
+        </li>
+        <li>
+          <a href="" target="_blank" data-share="facebook">facebookシェアテキスト</a>
+        </li>
+        <li>
+          <a href="" target="_blank" data-share="line">LINEシェアテキスト</a>
+        </li>
+      </ul>
+  </textarea>
 
   <hr>
 
