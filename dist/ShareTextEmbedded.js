@@ -4,6 +4,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/*!
+* Copyright (c) 2018 W-Kentaro
+* Released under the MIT license
+* https://opensource.org/licenses/mit-license.php
+*/
+
 var ShareTextEmbedded = function () {
   function ShareTextEmbedded(data) {
     _classCallCheck(this, ShareTextEmbedded);

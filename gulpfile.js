@@ -159,7 +159,11 @@ gulp.task('js_babel', function () {
     .pipe(babel())
     .pipe(gulp.dest(CONFIG.outputDirectory.dev))
     .pipe(gulp.dest(CONFIG.outputDirectory.dist))
-    .pipe(uglify())
+    .pipe(uglify({
+      output: {
+        comments: /^!/
+      }
+    }))
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest(CONFIG.outputDirectory.dist))
     .pipe(browserSync.reload({stream: true}));

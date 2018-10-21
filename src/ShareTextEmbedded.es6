@@ -1,3 +1,9 @@
+/*!
+* Copyright (c) 2018 W-Kentaro
+* Released under the MIT license
+* https://opensource.org/licenses/mit-license.php
+*/
+
 class ShareTextEmbedded{
   constructor(data) {
     this.GetOG = {
@@ -92,4 +98,3 @@ class ShareTextEmbedded{
     this.Encode();
   }
 }
-
