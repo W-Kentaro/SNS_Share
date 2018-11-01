@@ -14,6 +14,26 @@ SNSシェア文を自動エンコードして挿入します
 <a href="" target="_blank" data-share="twitter">Twitterシェアテキスト</a>
 ```
 
+基本テンプレート  
+
+```javascript
+  var shareText = {
+    url: '',
+    twitter: {
+      text: 'シェア文を入れてください。',
+      hash: 'ハッシュタグ',
+    },
+    facebook: {
+      text: 'シェア文を入れてください。',
+    },
+    line: {
+      text: 'シェア文を入れてください。',
+    }
+  };
+```
+
+data-shareに入れたSNSに対応するhrefを吐き出します  
+
 ---
 
 ## プロパティ  
