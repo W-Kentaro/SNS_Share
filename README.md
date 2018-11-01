@@ -17,7 +17,7 @@ SNSシェア文を自動エンコードして挿入します
 基本テンプレート  
 
 ```javascript
-  var shareText = {
+  var share = {
     url: '',
     twitter: {
       text: 'シェア文を入れてください。',
@@ -30,6 +30,9 @@ SNSシェア文を自動エンコードして挿入します
       text: 'シェア文を入れてください。',
     }
   };
+
+var ShareText = new ShareTextEmbedded(share);
+
 ```
 
 data-shareに入れたSNSに対応するhrefを吐き出します  
