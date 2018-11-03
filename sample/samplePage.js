@@ -2,15 +2,11 @@
 
 var ShareText01 = new ShareTextEmbedded(share);
 
-
 ShareText01.update({
   twitter: {
     text: 'hogehoge',
   }
 });
-
-console.log(ShareText01);
-ShareText01.init();
 
 var ShareText02 = new ShareTextEmbedded({
   url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
@@ -26,4 +22,34 @@ var ShareText02 = new ShareTextEmbedded({
   line: {
     elem: '.js-share-line',
   }
+});
+
+var randomText = 'あなたはボタンを0回押しました';
+var ShareText03 = new ShareTextEmbedded({
+  twitter: {
+    elem: '[data-share="random-twitter"]',
+    text: randomText,
+  },
+  facebook: {
+    elem: '[data-share="random-facebook"]'
+  },
+  line: {
+    elem: '[data-share="random-line"]'
+  }
+});
+
+var count = 0;
+
+document.querySelector('#random-button').addEventListener('click', function () {
+  count++;
+  randomText = 'あなたはボタンを' + count + '回押しました';
+
+  document.querySelector('.random-twitter').innerHTML = randomText;
+
+  ShareText03.update({
+    twitter: {
+      text: randomText,
+    }
+  });
+  ShareText03.init();
 });

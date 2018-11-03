@@ -144,6 +144,52 @@
     </li>
     <li><a href="" target="_blank" class="js-share-line">LINEシェアテキスト</a></li>
   </ul>
+
+  <hr>
+
+  <h2 id="update">Update メソッド</h2>
+
+  <button id="random-button">テキストを変える</button>
+  <br>
+  <br>
+  <pre class="prettyprint lang-js">
+    <code>
+var randomText = 'あなたはボタンを0回押しました';
+var ShareText03 = new ShareTextEmbedded({
+  twitter: {
+    elem: '[data-share="random-twitter"]',
+    text: randomText,
+  },
+  facebook: {
+    elem: '[data-share="random-facebook"]'
+  },
+  line: {
+    elem: '[data-share="random-line"]'
+  }
+});
+
+var count = 0;
+
+document.querySelector('#random-button').addEventListener('click', function () {
+  count++;
+  randomText = 'あなたはボタンを' + count + '回押しました';
+
+  document.querySelector('.random-twitter').innerHTML = randomText;
+
+  ShareText03.update({
+    twitter: {
+      text: randomText,
+    }
+  });
+  ShareText03.init();
+});
+    </code>
+  </pre>
+  <ul class="share-list">
+    <li><a href="" data-share="random-twitter" target="_blank" class="random-twitter">あなたはボタンを0回押しました</a></li>
+  </ul>
+
+
 </div>
 
 
