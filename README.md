@@ -4,6 +4,10 @@
 
 ---
 
+[![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE)  
+
+---
+
 ## 概要
   
 [sample page](https://w-kentaro.github.io/ShareTextEmbedded/sample/)
