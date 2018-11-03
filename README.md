@@ -17,23 +17,52 @@ SNSシェア文を自動エンコードして挿入します
 基本テンプレート  
 
 ```javascript
-  var share = {
-    url: '',
-    twitter: {
-      text: 'シェア文を入れてください。',
-      hash: 'ハッシュタグ',
-    },
-    facebook: {
-      text: 'シェア文を入れてください。',
-    },
-    line: {
-      text: 'シェア文を入れてください。',
-    }
-  };
 
-var ShareText = new ShareTextEmbedded(share);
+var ShareText = new ShareTextEmbedded(
+  {
+      url: '',
+      twitter: {
+        text: 'シェア文を入れてください。',
+        hash: 'ハッシュタグ',
+      },
+      facebook: {
+        text: 'シェア文を入れてください。',
+      },
+      line: {
+        text: 'シェア文を入れてください。',
+      }
+    }
+);
 
 ```
+
+HTMLとJSに分けて管理
+
+```javascript
+
+// HTMLに記述
+<script>
+  var share ={
+      url: '',
+      twitter: {
+        text: 'シェア文を入れてください。',
+        hash: 'ハッシュタグ',
+      },
+      facebook: {
+        text: 'シェア文を入れてください。',
+      },
+      line: {
+        text: 'シェア文を入れてください。',
+      }
+    }
+</script>
+
+// jsに記述
+var ShareText = new ShareTextEmbedded(share);
+
+
+```
+
 
 最小テンプレート
 
