@@ -61,7 +61,7 @@ class ShareTextEmbedded{
     this.shareText = {
       twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
       facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}&t=${this.facebook.text}`,
-      line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : '%20' + this.line.url}`,
+      line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
     };
 
     this.embed(this.twitter.elem, 'twitter');
