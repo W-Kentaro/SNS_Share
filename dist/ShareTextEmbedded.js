@@ -19,7 +19,7 @@ var ShareTextEmbedded = function () {
     this.GetOG = {
       url: '',
       description: '',
-      Get: function Get() {
+      get: function get() {
         for (var i = 0; i < document.head.children.length; i++) {
           if (document.head.children[i].getAttribute('property') === 'og:url') {
             this.url = document.head.children[i].getAttribute('content');
@@ -30,9 +30,9 @@ var ShareTextEmbedded = function () {
         }
       }
     };
-    this.GetOG.Get();
+    this.GetOG.get();
 
-    this.init = data.init || false;
+    this.isInit = data.init || false;
 
     this.url = data.url || this.GetOG.url;
     this.text = data.text || this.GetOG.description;
@@ -45,7 +45,6 @@ var ShareTextEmbedded = function () {
       via: this.twitter.via || false,
       related: this.twitter.related || false
     };
-    console.log(this.twitter.url);
     this.facebook = data.facebook || false;
     this.facebook = {
       elem: this.facebook.elem || '[data-share="facebook"]',
@@ -64,14 +63,14 @@ var ShareTextEmbedded = function () {
       facebook: '',
       line: ''
     };
-    if (!this.init) {
-      this.Encode();
+    if (!this.isInit) {
+      this.encode();
     }
   }
 
   _createClass(ShareTextEmbedded, [{
-    key: 'Encode',
-    value: function Encode() {
+    key: 'encode',
+    value: function encode() {
       this.url = encodeURIComponent(this.url);
       this.twitter.url = encodeURIComponent(this.twitter.url);
       this.twitter.text = this.twitter.text === null ? null : encodeURIComponent(this.twitter.text);
@@ -83,26 +82,24 @@ var ShareTextEmbedded = function () {
       this.line.url = this.line.url === null ? null : encodeURIComponent(this.line.url);
       this.line.text = encodeURIComponent(this.line.text);
 
-      this.Push();
+      this.push();
     }
   }, {
-    key: 'Push',
-    value: function Push() {
+    key: 'push',
+    value: function push() {
       this.shareText = {
         twitter: 'http://twitter.com/share?url=' + this.twitter.url + (this.twitter.text === null ? '' : '&text=' + this.twitter.text) + (this.twitter.hash ? '&hashtags=' + this.twitter.hash : '') + (this.twitter.via ? '&via=' + this.twitter.via : '') + (this.twitter.related ? '&related=' + this.twitter.related : ''),
         facebook: 'http://www.facebook.com/sharer.php?u=' + this.facebook.url + '&t=' + this.facebook.text,
         line: 'http://line.me/R/msg/text/?' + this.line.text + (this.line.url === null ? '' : '%20' + this.line.url)
       };
 
-      console.log(this.shareText.twitter);
-
-      this.Embed(this.twitter.elem, 'twitter');
-      this.Embed(this.facebook.elem, 'facebook');
-      this.Embed(this.line.elem, 'line');
+      this.embed(this.twitter.elem, 'twitter');
+      this.embed(this.facebook.elem, 'facebook');
+      this.embed(this.line.elem, 'line');
     }
   }, {
-    key: 'Embed',
-    value: function Embed(e, sns) {
+    key: 'embed',
+    value: function embed(e, sns) {
       var item = document.querySelectorAll(e);
       for (var i = 0; i < item.length; i++) {
         if (sns === 'twitter') {
@@ -117,9 +114,45 @@ var ShareTextEmbedded = function () {
       }
     }
   }, {
-    key: 'Init',
-    value: function Init() {
-      this.Encode();
+    key: 'init',
+    value: function init() {
+      this.encode();
+    }
+  }, {
+    key: 'update',
+    value: function update(data) {
+      var before = {
+        url: this.url,
+        text: this.text,
+        twitter: this.twitter,
+        facebook: this.facebook,
+        line: this.line
+      };
+      this.url = data.url || before.url;
+
+      this.text = data.text || before.text;
+
+      this.twitter = data.twitter || before.twitter;
+      this.twitter = {
+        elem: this.twitter.elem || before.twitter.elem,
+        url: this.twitter.url || before.twitter.url,
+        text: this.twitter.text === null ? null : this.twitter.text || before.twitter.text,
+        hash: this.twitter.hash || before.twitter.hash,
+        via: this.twitter.via || before.twitter.via,
+        related: this.twitter.related || before.twitter.related
+      };
+      this.facebook = data.facebook || before.facebook;
+      this.facebook = {
+        elem: this.facebook.elem || before.facebook.elem,
+        url: this.facebook.url || before.facebook.url,
+        text: this.facebook.text || before.facebook.text
+      };
+      this.line = data.line || before.line;
+      this.line = {
+        elem: this.line.elem || before.line.elem,
+        url: this.line.url === null ? null : this.line.url || before.line.url,
+        text: this.line.text || before.line.text
+      };
     }
   }]);
 
