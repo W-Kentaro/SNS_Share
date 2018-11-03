@@ -84,7 +84,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 | text | og:description | シェア文言、指定がない場合common textを使用 |
 | hash | false | ハッシュタグ 指定がない場合は表示しない  カンマで複数 |
 | via | false |  アカウント指定 指定がない場合は表示しない |
-| hash | false | おすすめユーザー表示 指定がない場合は表示しない |
+| related | false | おすすめユーザー表示 指定がない場合は表示しない |
 
 #### Facebook
 
