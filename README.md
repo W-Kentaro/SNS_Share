@@ -20,16 +20,10 @@ SNSシェア文を自動エンコードして挿入します
 
 var ShareText = new ShareTextEmbedded({
   url: '',
+  text: 'シェア文を入れてください。',
   twitter: {
-    text: 'シェア文を入れてください。',
     hash: 'ハッシュタグ',
   },
-  facebook: {
-    text: 'シェア文を入れてください。',
-  },
-  line: {
-    text: 'シェア文を入れてください。',
-  }
 });
 
 ```
