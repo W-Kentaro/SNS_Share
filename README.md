@@ -115,12 +115,24 @@ data-shareに入れたSNSに対応するhrefを吐き出します
   
 - init()
 
-init : false の場合のみ使用可能。  
-宣言時に挿入  
-  
-  
-  
+```javascript
+ShareText.init();
+```
 
+ 宣言時にhrefに書き込み  
+  
+- update()
+  
+```javascript
+Sharetext.update({data});
+```
+
+シェアの内容をdataの中身で上書き、  
+init()しないとurlの変更はされません。  
+  
+[sample](https://w-kentaro.github.io/ShareTextEmbedded/sample/#update)  
+
+---
 
 
 
