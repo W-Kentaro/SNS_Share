@@ -18,21 +18,19 @@ SNSシェア文を自動エンコードして挿入します
 
 ```javascript
 
-var ShareText = new ShareTextEmbedded(
-  {
-      url: '',
-      twitter: {
-        text: 'シェア文を入れてください。',
-        hash: 'ハッシュタグ',
-      },
-      facebook: {
-        text: 'シェア文を入れてください。',
-      },
-      line: {
-        text: 'シェア文を入れてください。',
-      }
-    }
-);
+var ShareText = new ShareTextEmbedded({
+  url: '',
+  twitter: {
+    text: 'シェア文を入れてください。',
+    hash: 'ハッシュタグ',
+  },
+  facebook: {
+    text: 'シェア文を入れてください。',
+  },
+  line: {
+    text: 'シェア文を入れてください。',
+  }
+});
 
 ```
 
