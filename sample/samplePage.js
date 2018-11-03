@@ -2,12 +2,6 @@
 
 var ShareText01 = new ShareTextEmbedded(share);
 
-ShareText01.update({
-  twitter: {
-    text: 'hogehoge',
-  }
-});
-
 var ShareText02 = new ShareTextEmbedded({
   url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
   text: 'ShareTextEmbeddedはシェア文を自動でエンコードしてリンクを埋め込む関数です。',
@@ -30,12 +24,8 @@ var ShareText03 = new ShareTextEmbedded({
     elem: '[data-share="random-twitter"]',
     text: randomText,
   },
-  facebook: {
-    elem: '[data-share="random-facebook"]'
-  },
-  line: {
-    elem: '[data-share="random-line"]'
-  }
+  facebook: 'disable',
+  line: 'disable',
 });
 
 var count = 0;

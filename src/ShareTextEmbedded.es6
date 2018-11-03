@@ -27,7 +27,7 @@ class ShareTextEmbedded{
     this.url = data.url ? encodeURIComponent(data.url) : encodeURIComponent(this.GetOG.url);
     this.text = data.text ? encodeURIComponent(data.text) : encodeURIComponent(this.GetOG.description);
     this.twitter = data.twitter || false;
-    this.twitter = {
+    this.twitter = this.twitter === 'disable' ? false : {
       elem: this.twitter.elem || `[data-share="twitter"]`,
       url: this.twitter.url ? encodeURIComponent(this.twitter.url) : this.url,
       text: this.twitter.text === null ? null : this.twitter.text ? encodeURIComponent(this.twitter.text) : this.text,
@@ -36,18 +36,17 @@ class ShareTextEmbedded{
       related: this.twitter.related ? encodeURIComponent(this.twitter.related) : false,
     };
     this.facebook = data.facebook || false;
-    this.facebook = {
+    this.facebook = this.facebook === 'disable' ? false : {
       elem: this.facebook.elem || `[data-share="facebook"]`,
       url: this.facebook.url ? encodeURIComponent(this.facebook.url) : this.url,
       text: this.facebook.text ? encodeURIComponent(this.facebook.text) : this.text,
     };
     this.line = data.line || false;
-    this.line = {
+    this.line = this.line === 'disable' ? false : {
       elem: this.line.elem || `[data-share="line"]`,
       url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : this.url,
       text: this.line.text ? encodeURIComponent(this.line.text) : this.text,
     };
-
     this.shareText = {
       twitter: '',
       facebook: '',
@@ -64,9 +63,15 @@ class ShareTextEmbedded{
       line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
     };
 
-    this.embed(this.twitter.elem, 'twitter');
-    this.embed(this.facebook.elem, 'facebook');
-    this.embed(this.line.elem, 'line');
+    if(this.twitter){
+      this.embed(this.twitter.elem, 'twitter');
+    }
+    if(this.facebook){
+      this.embed(this.facebook.elem, 'facebook');
+    }
+    if(this.line){
+      this.embed(this.line.elem, 'line');
+    }
   }
   embed(e, sns) {
     const item = document.querySelectorAll(e);
