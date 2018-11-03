@@ -79,8 +79,9 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 
 ```javascript
   var share = {
-    url: '',
     init: true,
+    url: '',
+    text:'',
     twitter: {
       elem: '.twitter',
       url : 'sample',
