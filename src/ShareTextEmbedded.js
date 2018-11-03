@@ -11,7 +11,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 */
 
 var ShareTextEmbedded = function () {
-  function ShareTextEmbedded(data) {
+  function ShareTextEmbedded() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
     _classCallCheck(this, ShareTextEmbedded);
 
     this.GetOG = {
@@ -34,24 +36,27 @@ var ShareTextEmbedded = function () {
 
     this.url = data.url || this.GetOG.url;
     this.text = data.text || this.GetOG.description;
+    this.twitter = data.twitter || false;
     this.twitter = {
-      elem: data.twitter.elem || '[data-share="twitter"]',
-      url: data.twitter.url || this.url,
-      text: data.twitter.text || this.text,
-      hash: data.twitter.hash || false,
-      via: data.twitter.via || false,
-      related: data.twitter.related || false
+      elem: this.twitter.elem || '[data-share="twitter"]',
+      url: this.twitter.url || this.url,
+      text: this.twitter.text === null ? null : this.twitter.text || this.text,
+      hash: this.twitter.hash || false,
+      via: this.twitter.via || false,
+      related: this.twitter.related || false
     };
+    console.log(this.twitter.url);
+    this.facebook = data.facebook || false;
     this.facebook = {
-      elem: data.facebook.elem || '[data-share="facebook"]',
-      url: data.facebook.url || this.url,
-      text: data.facebook.text || this.text
+      elem: this.facebook.elem || '[data-share="facebook"]',
+      url: this.facebook.url || this.url,
+      text: this.facebook.text || this.text
     };
+    this.line = data.line || false;
     this.line = {
-      elem: data.line.elem || '[data-share="line"]',
-      url: data.line.url || this.url,
-      text: data.line.text || this.text,
-      onlyText: data.line.onlyText || false
+      elem: this.line.elem || '[data-share="line"]',
+      url: this.line.url === null ? null : this.line.url || this.url,
+      text: this.line.text || this.text
     };
 
     this.shareText = {
@@ -69,13 +74,13 @@ var ShareTextEmbedded = function () {
     value: function Encode() {
       this.url = encodeURIComponent(this.url);
       this.twitter.url = encodeURIComponent(this.twitter.url);
-      this.twitter.text = encodeURIComponent(this.twitter.text);
+      this.twitter.text = this.twitter.text === null ? null : encodeURIComponent(this.twitter.text);
       this.twitter.hash = this.twitter.hash ? encodeURIComponent(this.twitter.hash) : this.twitter.hash;
       this.twitter.via = this.twitter.via ? encodeURIComponent(this.twitter.via) : this.twitter.via;
       this.twitter.related = this.twitter.related ? encodeURIComponent(this.twitter.related) : this.twitter.related;
       this.facebook.url = encodeURIComponent(this.facebook.url);
       this.facebook.text = encodeURIComponent(this.facebook.text);
-      this.line.url = encodeURIComponent(this.line.url);
+      this.line.url = this.line.url === null ? null : encodeURIComponent(this.line.url);
       this.line.text = encodeURIComponent(this.line.text);
 
       this.Push();
@@ -84,10 +89,12 @@ var ShareTextEmbedded = function () {
     key: 'Push',
     value: function Push() {
       this.shareText = {
-        twitter: 'http://twitter.com/share?url=' + this.twitter.url + '&text=' + this.twitter.text + (this.twitter.hash ? '&hashtags=' + this.twitter.hash : '') + (this.twitter.via ? '&via=' + this.twitter.via : '') + (this.twitter.related ? '&related=' + this.twitter.related : ''),
+        twitter: 'http://twitter.com/share?url=' + this.twitter.url + (this.twitter.text === null ? '' : '&text=' + this.twitter.text) + (this.twitter.hash ? '&hashtags=' + this.twitter.hash : '') + (this.twitter.via ? '&via=' + this.twitter.via : '') + (this.twitter.related ? '&related=' + this.twitter.related : ''),
         facebook: 'http://www.facebook.com/sharer.php?u=' + this.facebook.url + '&t=' + this.facebook.text,
-        line: 'http://line.me/R/msg/text/?' + this.line.text + (this.line.onlyText ? '' : '%20' + this.line.url)
+        line: 'http://line.me/R/msg/text/?' + this.line.text + (this.line.url === null ? '' : '%20' + this.line.url)
       };
+
+      console.log(this.shareText.twitter);
 
       this.Embed(this.twitter.elem, 'twitter');
       this.Embed(this.facebook.elem, 'facebook');

@@ -271,7 +271,7 @@ gulp.task('server', function () {
   }else{
     browserSync({
       server: {
-        baseDir: CONFIG.outputDirectory.dev
+        baseDir: './'
       }
     });
   }
