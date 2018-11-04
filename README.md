@@ -147,6 +147,16 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 
 ---
 
+## パラメータ
+
+| パラメータ |  説明 |
+|:--------|:-----------|
+| ShareText.URL.twitter | TwitterのシェアURL |
+| ShareText.URL.facebook | facebookのシェアURL |
+| ShareText.URL.line | LINEのシェアURL |
+
+---
+
 ## メソッド
   
 - init()

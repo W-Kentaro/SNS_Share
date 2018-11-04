@@ -47,22 +47,16 @@ class ShareTextEmbedded{
       url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : this.url,
       text: this.line.text ? encodeURIComponent(this.line.text) : this.text,
     };
-    this.shareText = {
-      twitter: '',
-      facebook: '',
-      line: '',
-    };
-    if(!this.isInit){
-      this.push();
-    }
-  }
-  push() {
-    this.shareText = {
+    this.URL = {
       twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
       facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}&t=${this.facebook.text}`,
       line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
     };
-
+    if(!this.isInit){
+      this.init();
+    }
+  }
+  push() {
     if(this.twitter){
       this.embed(this.twitter.elem, 'twitter');
     }
@@ -77,13 +71,13 @@ class ShareTextEmbedded{
     const item = document.querySelectorAll(e);
     for(let i = 0; i < item.length; i++){
       if(sns === 'twitter'){
-        item[i].setAttribute(`href`, this.shareText.twitter);
+        item[i].setAttribute(`href`, this.URL.twitter);
       }
       if(sns === 'facebook'){
-        item[i].setAttribute(`href`, this.shareText.facebook);
+        item[i].setAttribute(`href`, this.URL.facebook);
       }
       if(sns === 'line'){
-        item[i].setAttribute(`href`, this.shareText.line);
+        item[i].setAttribute(`href`, this.URL.line);
       }
     }
   }
@@ -122,6 +116,12 @@ class ShareTextEmbedded{
       elem: this.line.elem || before.line.elem,
       url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : before.line.url,
       text: this.line.text ? encodeURIComponent(this.line.text) : before.line.text,
+    };
+
+    this.URL = {
+      twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
+      facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}&t=${this.facebook.text}`,
+      line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
     };
   }
 }
