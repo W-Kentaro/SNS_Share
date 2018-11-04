@@ -1,24 +1,24 @@
 {
-  "name": "dev-template-gulp",
-  "version": "0.0.9",
-  "description": "Development environment for web site development",
-  "keywords": "web gulp template",
-  "author": "yama-dev",
-  "license": "MIT",
+  "name": "sharetext-embedded",
+  "version": "0.1.0",
+  "description": "share text embedded (twitter/facebook/line)",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && gulp",
-    "develop": "gulp",
-    "release": "gulp release",
-    "update:check": "npm outdated"
-  },
-  "engines": {
-    "node": ">=4.8.7 <=10.5.0"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yama-dev/dev-template-gulp"
+    "url": "git+https://github.com/W-Kentaro/ShareTextEmbedded.git"
   },
+  "keywords": [
+    "sharetext"
+  ],
+  "author": "W-Kentaro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/W-Kentaro/ShareTextEmbedded/issues"
+  },
+  "homepage": "https://github.com/W-Kentaro/ShareTextEmbedded#readme",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^8.6.3",
