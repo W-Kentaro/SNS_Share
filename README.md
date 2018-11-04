@@ -7,6 +7,24 @@
 
 ---
 
+### npm
+
+```
+//npm install
+npm i sharetext-embedded
+```
+
+
+```javascript
+// import
+import ShareTextEmbedded from 'sharetext-embedded';
+```
+
+
+
+
+---
+
 ## 概要
   
 [sample page](https://w-kentaro.github.io/ShareTextEmbedded/sample/)

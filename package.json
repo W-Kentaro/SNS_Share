@@ -1,17 +1,23 @@
 {
   "name": "sharetext-embedded",
-  "version": "0.1.0",
+  "version": "0.1.21",
   "description": "share text embedded (twitter/facebook/line)",
-  "main": "index.js",
+  "main": "./dist/ShareTextEmbedded.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && npm run develop",
+    "develop": "npm-run-all -p build:webpack server",
+    "server": "browser-sync start --server ./ --directory ./sample --files **/*.css **/*.js **/*.html",
+    "build:webpack": "webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/W-Kentaro/ShareTextEmbedded.git"
   },
   "keywords": [
-    "sharetext"
+    "share",
+    "share url",
+    "share link",
+    "share text"
   ],
   "author": "W-Kentaro",
   "license": "MIT",
@@ -21,33 +27,13 @@
   "homepage": "https://github.com/W-Kentaro/ShareTextEmbedded#readme",
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^8.6.3",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.4",
-    "css-mqpacker": "^6.0.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-cached": "^1.1.1",
-    "gulp-csscomb": "^3.0.8",
-    "gulp-eslint": "^4.0.2",
-    "gulp-htmlhint": "^2.1.1",
-    "gulp-ignore": "^2.0.2",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sass-glob": "^1.0.9",
-    "gulp-uglify": "^3.0.1",
-    "htmlhint-stylish": "^1.0.3",
-    "pixrem": "^4.0.1",
-    "postcss-opacity": "^5.0.0",
-    "run-sequence": "^2.2.0"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
+    "npm-run-all": "^4.1.2",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14"
   }
 }
