@@ -1,8 +1,8 @@
 {
   "name": "sharetext-embedded",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "share text embedded (twitter/facebook/line)",
-  "main": "./dist/ShareTextEmbedded.min.js",
+  "main": "./dist/sharetext-embedded.min.js",
   "scripts": {
     "start": "npm install && npm run develop",
     "develop": "npm-run-all -p build:webpack server",
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/W-Kentaro/ShareTextEmbedded/issues"
   },
-  "homepage": "https://github.com/W-Kentaro/ShareTextEmbedded#readme",
+  "homepage": "https://github.com/W-Kentaro/ShareTextEmbedded",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",

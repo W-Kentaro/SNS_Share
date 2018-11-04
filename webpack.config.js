@@ -2,10 +2,10 @@ const webpack = require('webpack');
 
 const config = {
   mode: 'production',
-  entry: './src/ShareTextEmbedded.js',
+  entry: './src/sharetext-embedded.js',
   output: {
     path: `${__dirname}/dist`,
-    filename: 'ShareTextEmbedded.min.js',
+    filename: 'sharetext-embedded.min.js',
     libraryTarget: 'umd'
   },
   module: {
