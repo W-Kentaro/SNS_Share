@@ -58,8 +58,7 @@ var ShareText = new ShareTextEmbedded({
 
 HTMLとJSに分けて管理
 
-```javascript
-
+```
 // HTMLに記述
 <script>
   var share ={
@@ -77,12 +76,9 @@ HTMLとJSに分けて管理
     }
 </script>
 
-// jsに記述
 var ShareText = new ShareTextEmbedded(share);
 
-
 ```
-
 
 最小テンプレート
 
