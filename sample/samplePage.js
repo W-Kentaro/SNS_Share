@@ -47,7 +47,7 @@ document.querySelector('#random-button').addEventListener('click', function () {
 
 var ShareText04 = new ShareTextEmbedded({
   twitter: {
-    elem: '[data-share="textarea-tw"]',
+    elem: null,
     text: 'テキストを入力していません',
   },
   facebook: 'disable',
