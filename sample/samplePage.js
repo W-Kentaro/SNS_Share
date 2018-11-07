@@ -43,3 +43,25 @@ document.querySelector('#random-button').addEventListener('click', function () {
   });
   ShareText03.init();
 });
+
+var textareaData;
+
+var ShareText04 = new ShareTextEmbedded({
+  twitter: {
+    elem: '[data-share="textarea-tw"]',
+    text: 'テキストを入力していません',
+  },
+  facebook: 'disable',
+  line: 'disable',
+});
+
+document.querySelector('#textarea-button').addEventListener('click', function () {
+  textareaData = document.querySelector('.textarea').value;
+
+  ShareText04.update({
+    twitter: {
+      text: textareaData,
+    }
+  });
+  window.open(ShareText04.URL.twitter, '_blank');
+});

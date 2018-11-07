@@ -180,6 +180,8 @@
 
   <h2 id="update">Update メソッド</h2>
 
+  <h3>SAMPLE 1: aタグをイベントに応じて書き換える</h3>
+
   <button id="random-button">テキストを変える</button>
   <br>
   <br>
@@ -215,6 +217,42 @@ document.querySelector('#random-button').addEventListener('click', function () {
   <ul class="share-list">
     <li><a href="" data-share="random-twitter" target="_blank" class="random-twitter">あなたはボタンを0回押しました</a></li>
   </ul>
+
+  <hr>
+
+  <h3>Sample 2 ：テキストエリアの内容を取得してシェア</h3>
+
+  <textarea class="textarea" name="" cols="30" rows="10" placeholder="ツイート内容をいれてください"></textarea>
+
+  <pre class="prettyprint lang-js">
+    <code>
+var textareaData;
+
+var ShareText04 = new ShareTextEmbedded({
+  twitter: {
+    elem: '[data-share="textarea-tw"]',
+    text: 'テキストを入力していません',
+  },
+  facebook: 'disable',
+  line: 'disable',
+});
+
+document.querySelector('#textarea-button').addEventListener('click', function () {
+  textareaData = document.querySelector('.textarea').value;
+
+  ShareText04.update({
+    twitter: {
+      text: textareaData,
+    }
+  });
+  window.open(ShareText04.URL.twitter, '_blank');
+});
+    </code>
+  </pre>
+  <ul class="share-list">
+    <li id="textarea-button"><button>share!</button></li>
+  </ul>
+
 
 
 </div>
