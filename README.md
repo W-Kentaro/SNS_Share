@@ -7,6 +7,12 @@
 
 ---
 
+Twiitter facebook LINEのシェアURLを自動で埋め込みます。  
+エンコード処理の削減で、
+視認性・メンテナンス性を向上させます。  
+
+---
+
 ## Get Start
 
 ### npm  
@@ -49,7 +55,7 @@ SNSシェア文を自動エンコードして挿入します
 
 ```javascript
 var ShareText = new ShareTextEmbedded({
-  url: '',
+  url: 'URLを入れてください。',
   twitter: {
     text: 'シェア文を入れてください。',
     hash: 'ハッシュタグ',
