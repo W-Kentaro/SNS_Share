@@ -24,7 +24,7 @@ class ShareTextEmbedded{
 
     this.isInit = data.init || false;
 
-    this.url = data.url ? encodeURIComponent(data.url) : encodeURIComponent(this.GetOG.url);
+    this.url = data.url ? encodeURIComponent(data.url) : encodeURIComponent(this.GetOG.url) || location.href;
     this.text = data.text ? encodeURIComponent(data.text) : encodeURIComponent(this.GetOG.description);
     this.twitter = data.twitter || false;
     this.twitter = this.twitter === 'disable' ? false : {
