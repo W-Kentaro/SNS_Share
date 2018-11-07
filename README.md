@@ -1,6 +1,6 @@
 ﻿---
 
-# ShareTextEmbedded
+# Share Text Embedded
 
 
 [![npm version](https://badge.fury.io/js/sharetext-embedded.svg)](https://badge.fury.io/js/sharetext-embedded) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE)  [![GitHub download](https://img.shields.io/badge/download-latest-blue.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/archive/master.zip)  
