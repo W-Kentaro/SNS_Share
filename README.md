@@ -36,10 +36,14 @@ import ShareTextEmbedded from 'sharetext-embedded';
 ```
 
 ---
+## DEMOS
+
+sample page => https://w-kentaro.github.io/ShareTextEmbedded/sample/  
+  
+---
 
 ## Overview  
   
-[sample page](https://w-kentaro.github.io/ShareTextEmbedded/sample/)
   
 SNSシェア文を自動エンコードして挿入します  
 
