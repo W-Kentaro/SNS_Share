@@ -44,7 +44,6 @@ document.querySelector('#random-button').addEventListener('click', function () {
   ShareText03.init();
 });
 
-var textareaData;
 
 var ShareText04 = new ShareTextEmbedded({
   twitter: {
@@ -56,11 +55,9 @@ var ShareText04 = new ShareTextEmbedded({
 });
 
 document.querySelector('#textarea-button').addEventListener('click', function () {
-  textareaData = document.querySelector('.textarea').value;
-
   ShareText04.update({
     twitter: {
-      text: textareaData,
+      text: document.querySelector('.textarea').value,
     }
   });
   window.open(ShareText04.URL.twitter, '_blank');
