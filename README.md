@@ -7,7 +7,9 @@
 
 ---
 
-## npm  
+## Get Start
+
+### npm  
 
 npm page => https://www.npmjs.com/package/sharetext-embedded  
 
@@ -21,9 +23,15 @@ npm i sharetext-embedded
 import ShareTextEmbedded from 'sharetext-embedded';
 ```
 
+### Script Tags
+
+```html
+<script src="../dist/sharetext-embedded.min.js"></script>
+```
+
 ---
 
-## 概要  
+## Overview  
   
 [sample page](https://w-kentaro.github.io/ShareTextEmbedded/sample/)
   
@@ -34,6 +42,8 @@ SNSシェア文を自動エンコードして挿入します
  <a href="" target="_blank" data-share="facebook">facebookシェアテキスト</a>
  <a href="" target="_blank" data-share="line">LINEシェアテキスト</a>
  ```
+
+### Template
 
 基本テンプレート  
 
@@ -86,7 +96,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 
 ---
 
-## プロパティ  
+## Properties  
 
 ```javascript
   var share = {
@@ -155,7 +165,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 
 ---
 
-## パラメータ
+## Parameters
 
 | パラメータ |  説明 |
 |:--------|:-----------|
@@ -165,7 +175,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 
 ---
 
-## メソッド
+## Methods
   
 - init()
 
@@ -180,10 +190,9 @@ ShareText.init();
 ```javascript
 Sharetext.update({data});
 ```
+[DEMO](https://w-kentaro.github.io/ShareTextEmbedded/sample/#update)    
 
 シェアの内容をdataの中身で上書き、  
 init()しないとurlの変更はされません。  
   
-[sample](https://w-kentaro.github.io/ShareTextEmbedded/sample/#update)    
-
 ---
