@@ -14,8 +14,9 @@ Twiitter facebook LINEのシェアURLを自動で埋め込みます。
 ---
 
 ## Get Start
+
+download link => https://github.com/W-Kentaro/ShareTextEmbedded/archive/master.zip  
   
-[![GitHub download](https://img.shields.io/badge/download-latest-blue.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/archive/master.zip)    
   
 ### npm  
 
