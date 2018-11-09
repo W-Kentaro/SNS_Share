@@ -1,4 +1,3 @@
-﻿---
 
 # Share Text Embedded
 
