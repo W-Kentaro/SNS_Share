@@ -9,6 +9,12 @@
 Twiitter facebook LINEのシェアURLを自動で埋め込みます。  
 エンコード処理の削減で、
 視認性・メンテナンス性を向上させます。  
+  
+※update※  
+LINEのシェアURL変更に合わせ  
+facebookとLINEからtextを削除いたしました。
+
+文言はog:descriptionから自動取得されます。
 
 ---
 
@@ -62,16 +68,8 @@ SNSシェア文を自動エンコードして挿入します
 ```javascript
 var ShareText = new ShareTextEmbedded({
   url: 'URLを入れてください。',
-  twitter: {
-    text: 'シェア文を入れてください。',
-    hash: 'ハッシュタグ',
-  },
-  facebook: {
-    text: 'シェア文を入れてください。',
-  },
-  line: {
-    text: 'シェア文を入れてください。',
-  }
+  text: 'シェア文を入れてください。',
+  hash: 'ハッシュタグ',
 });
 ```
 
@@ -81,17 +79,9 @@ HTMLとJSに分けて管理
 // HTMLに記述
 <script>
   var share ={
-      url: '',
-      twitter: {
-        text: 'シェア文を入れてください。',
-        hash: 'ハッシュタグ',
-      },
-      facebook: {
-        text: 'シェア文を入れてください。',
-      },
-      line: {
-        text: 'シェア文を入れてください。',
-      }
+      url: 'URL',
+      text: 'シェア文を入れてください。',
+      hash: 'ハッシュタグ',
     }
 </script>
 
@@ -113,8 +103,9 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 ```javascript
   var share = {
     init: true,
-    url: '',
-    text:'',
+    url: 'URL',
+    text:'シェア文言',
+    hash: 'サンプル', // 複数の場合はカンマで区切る
     twitter: {
       elem: '.twitter',
       url : 'sample',
@@ -126,12 +117,10 @@ data-shareに入れたSNSに対応するhrefを吐き出します
     facebook: {
       elem: '.facebook',
       url : 'sample',
-      text: 'facebookのシェア文です。',
     },
     line: {
       elem: '.line',
       url : 'sample',
-      text: 'LINEの\nシェア文です。',
     }
   };
 ```
@@ -143,6 +132,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 | init | true | trueで自動的に挿入  falseの場合init()時に挿入      |
 | url | og:url | シェアに埋め込まれるURL  指定がない場合はog:urlを使用  |
 | text | og:description | シェア文言、指定がない場合og:descriptionを使用 |
+| hash |false | ハッシュタグ 現在はTwitterのみ使用 twitter.hashに上書きされる |
 
 #### Twitter
 
@@ -163,7 +153,6 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 | facebook | <object> | 'disable'でfacebookシェア文は生成されない |
 | elem | [data-share="facebook"] | 挿入箇所  class/id/data属性で指定 |
 | url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用  |
-| text | common text | シェア文言、指定がない場合common textを使用 |
 
 
 #### LINE
@@ -173,7 +162,6 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 | line | <object> | 'disable'でLINEシェア文は生成されない |
 | elem | [data-share="line"] | 挿入箇所  class/id/data属性で指定 |
 | url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 nullでURLを空に |
-| text | common text | シェア文言、指定がない場合common textを使用 |
 
 ---
 

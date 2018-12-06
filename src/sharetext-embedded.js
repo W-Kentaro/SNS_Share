@@ -26,31 +26,30 @@ class ShareTextEmbedded{
 
     this.url = data.url ? encodeURIComponent(data.url) : encodeURIComponent(this.GetOG.url) || location.href;
     this.text = data.text ? encodeURIComponent(data.text) : encodeURIComponent(this.GetOG.description);
+    this.hash = data.hash ? encodeURIComponent(data.hash) : false;
     this.twitter = data.twitter || false;
     this.twitter = this.twitter === 'disable' ? false : {
-      elem: this.twitter.elem || `[data-share="twitter"]`,
+      elem: this.twitter.elem === null ? null : this.twitter.elem || `[data-share="twitter"]`,
       url: this.twitter.url ? encodeURIComponent(this.twitter.url) : this.url,
       text: this.twitter.text === null ? null : this.twitter.text ? encodeURIComponent(this.twitter.text) : this.text,
-      hash: this.twitter.hash ? encodeURIComponent(this.twitter.hash) : false,
+      hash: this.twitter.hash ? encodeURIComponent(this.twitter.hash) : this.hash,
       via: this.twitter.via ? encodeURIComponent(this.twitter.via) : false,
       related: this.twitter.related ? encodeURIComponent(this.twitter.related) : false,
     };
     this.facebook = data.facebook || false;
     this.facebook = this.facebook === 'disable' ? false : {
-      elem: this.facebook.elem || `[data-share="facebook"]`,
+      elem: this.facebook.elem === null ? null : this.facebook.elem || `[data-share="facebook"]`,
       url: this.facebook.url ? encodeURIComponent(this.facebook.url) : this.url,
-      text: this.facebook.text ? encodeURIComponent(this.facebook.text) : this.text,
     };
     this.line = data.line || false;
     this.line = this.line === 'disable' ? false : {
-      elem: this.line.elem || `[data-share="line"]`,
+      elem: this.line.elem === null ? null : this.line.elem || `[data-share="line"]`,
       url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : this.url,
-      text: this.line.text ? encodeURIComponent(this.line.text) : this.text,
     };
     this.URL = {
       twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
-      facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}&t=${this.facebook.text}`,
-      line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
+      facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}`,
+      line: `https://social-plugins.line.me/lineit/share?url=${this.line.url}`,
     };
     if(!this.isInit){
       this.init();
@@ -109,19 +108,17 @@ class ShareTextEmbedded{
     this.facebook = {
       elem: this.facebook.elem || before.facebook.elem,
       url: this.facebook.url ? encodeURIComponent(this.facebook.url) : before.facebook.url,
-      text: this.facebook.text ? encodeURIComponent(this.facebook.text) : before.facebook.text,
     };
     this.line = data.line || before.line;
     this.line = {
       elem: this.line.elem || before.line.elem,
       url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : before.line.url,
-      text: this.line.text ? encodeURIComponent(this.line.text) : before.line.text,
     };
 
     this.URL = {
       twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
-      facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}&t=${this.facebook.text}`,
-      line: `http://line.me/R/msg/text/?${this.line.text}${this.line.url === null ? '' : `%20${this.line.url}`}`,
+      facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}`,
+      line: `https://social-plugins.line.me/lineit/share?url=${this.line.url}`,
     };
   }
 }

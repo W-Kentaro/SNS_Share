@@ -1,6 +1,6 @@
 {
   "name": "sharetext-embedded",
-  "version": "0.1.23",
+  "version": "0.1.3",
   "description": "share text embedded (twitter/facebook/line)",
   "main": "./dist/sharetext-embedded.min.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.6",
     "npm-run-all": "^4.1.2",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.14"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
   }
 }

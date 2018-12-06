@@ -30,21 +30,7 @@
 
 </head>
 <body>
-<script>
-  var share = {
-    url: '',
-    twitter: {
-      text: '',
-      hash: '', // 複数の場合はカンマで区切る
-    },
-    facebook: {
-      text: 'facebookのシェア文です。',
-    },
-    line: {
-      text: 'LINEの\nシェア文です。',
-    }
-  };
-</script>
+
 <a href="https://github.com/W-Kentaro/ShareTextEmbedded" class="github-corner" aria-label="View source on GitHub">
   <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#000; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -112,6 +98,13 @@
   </textarea>
 
   <hr>
+  <script>
+    var share = {
+      url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
+      text: 'シェア文です。\n改行も可能です。',
+      hash: 'ハッシュが入ります', // 複数の場合はカンマで区切る
+    };
+  </script>
 
   <h2>HTMLに直接書き込む場合</h2>
   <pre class="prettyprint lang-js">
@@ -119,16 +112,8 @@
     // htmlにstyleタグで記述
     var share = {
       url: 'https://github.com/W-Kentaro/ShareTextEmbedded',
-      twitter: {
-        text: 'Twitterのシェア文です。\n改行も可能です。',
-        hash: '',
-      },
-      facebook: {
-        text: 'facebookのシェア文です。',
-      },
-      line: {
-        text: 'LINEの\nシェア文です。',
-      }
+      text: 'シェア文です。\n改行も可能です。',
+      hash: 'ハッシュが入ります', // 複数の場合はカンマで区切る
     };
 
     // jsファイルに記述
@@ -152,9 +137,9 @@
     var ShareText02 = new ShareTextEmbedded({
       url: '',
       text: 'ShareTextEmbeddedはシェア文を自動でエンコードしてリンクを埋め込む関数です。',
+      hash: 'ShareTextEmbedded',
       twitter: {
         elem: '.js-share-twitter',
-        hash: 'ShareTextEmbedded',
         via: twitterjp,
       },
       facebook: {

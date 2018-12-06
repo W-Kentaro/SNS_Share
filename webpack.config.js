@@ -6,7 +6,6 @@ const config = {
   output: {
     path: `${__dirname}/dist`,
     filename: 'sharetext-embedded.min.js',
-    libraryTarget: 'umd'
   },
   module: {
     rules: [
