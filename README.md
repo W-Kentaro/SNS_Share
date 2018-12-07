@@ -13,7 +13,6 @@ Twiitter facebook LINEのシェアURLを自動で埋め込みます。
 ※update※  
 LINEのシェアURL変更に合わせ  
 facebookとLINEからtextを削除いたしました。
-
 文言はog:descriptionから自動取得されます。
 
 ---
@@ -104,23 +103,23 @@ data-shareに入れたSNSに対応するhrefを吐き出します
   var share = {
     init: true,
     url: 'URL',
-    text:'シェア文言',
-    hash: 'サンプル', // 複数の場合はカンマで区切る
+    text:'share text',
+    hash: 'hash', // 複数の場合はカンマで区切る
     twitter: {
-      elem: '.twitter',
-      url : 'sample',
-      text: 'Twitterのシェア文です。\nTwitterのシェア文です。改行も可能です。',
-      hash: 'サンプル', // 複数の場合はカンマで区切る
+      elem: 'element',
+      url : 'URL',
+      text: 'share text',
+      hash: 'hash', // 複数の場合はカンマで区切る
       via: 'sample',
       related: 'sample' 
     },
     facebook: {
-      elem: '.facebook',
-      url : 'sample',
+      elem: 'element',
+      url : 'URL',
     },
     line: {
-      elem: '.line',
-      url : 'sample',
+      elem: 'element',
+      url : 'URL',
     }
   };
 ```
