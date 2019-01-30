@@ -8,7 +8,7 @@ var ShareText02 = new ShareTextEmbedded({
   twitter: {
     elem: '.js-share-twitter',
     hash: 'ShareTextEmbedded',
-    via: 'twitterjp',
+    related: 'twitterjp',
   },
   facebook: {
     elem: '.js-share-facebook',
