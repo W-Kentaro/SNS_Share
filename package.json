@@ -1,6 +1,6 @@
 {
   "name": "sharetext-embedded",
-  "version": "0.1.3.1",
+  "version": "0.1.4",
   "description": "share text embedded (twitter/facebook/line)",
   "main": "./src/sharetext-embedded.js",
   "scripts": {
