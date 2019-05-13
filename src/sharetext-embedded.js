@@ -4,7 +4,7 @@
 * https://opensource.org/licenses/mit-license.php
 */
 
-class ShareTextEmbedded{
+export class ShareTextEmbedded{
   constructor(data = false) {
     this.GetOG = {
       url: '',
@@ -30,7 +30,7 @@ class ShareTextEmbedded{
     this.twitter = data.twitter || false;
     this.twitter = this.twitter === 'disable' ? false : {
       elem: this.twitter.elem === null ? null : this.twitter.elem || `[data-share="twitter"]`,
-      url: this.twitter.url ? encodeURIComponent(this.twitter.url) : this.url,
+      url: this.twitter.url === null ? null : this.twitter.url ? encodeURIComponent(this.twitter.url) : this.url,
       text: this.twitter.text === null ? null : this.twitter.text ? encodeURIComponent(this.twitter.text) : this.text,
       hash: this.twitter.hash ? encodeURIComponent(this.twitter.hash) : this.hash,
       via: this.twitter.via ? encodeURIComponent(this.twitter.via) : false,
@@ -44,10 +44,12 @@ class ShareTextEmbedded{
     this.line = data.line || false;
     this.line = this.line === 'disable' ? false : {
       elem: this.line.elem === null ? null : this.line.elem || `[data-share="line"]`,
-      url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : this.url,
+      url: this.line.url ? encodeURIComponent(this.line.url) : this.url,
     };
     this.URL = {
-      twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
+      twitter: this.twitter.url === null ?
+        `https://twitter.com/intent/tweet?text=${this.twitter.text}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}` :
+        `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
       facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}`,
       line: `https://social-plugins.line.me/lineit/share?url=${this.line.url}`,
     };
@@ -91,28 +93,35 @@ class ShareTextEmbedded{
       facebook: this.facebook,
       line: this.line,
     };
+    console.log(data);
     this.url = data.url || before.url;
 
     this.text = data.text || before.text;
 
-    this.twitter = data.twitter || before.twitter;
+    if(!data.twitter){
+      data.twitter = {};
+    }
     this.twitter = {
-      elem: this.twitter.elem || before.twitter.elem,
-      url: this.twitter.url ? encodeURIComponent(this.twitter.url) : before.twitter.url,
-      text: this.twitter.text === null ? null : this.twitter.text ? encodeURIComponent(this.twitter.text) : before.twitter.text,
-      hash: this.twitter.hash ? encodeURIComponent(this.twitter.hash) : before.twitter.hash,
-      via: this.twitter.via ? encodeURIComponent(this.twitter.via) : before.twitter.via,
-      related: this.twitter.related ? encodeURIComponent(this.twitter.related) : before.twitter.related,
+      elem: data.twitter.elem ? data.twitter.elem : before.twitter.elem,
+      url: data.twitter.url ? encodeURIComponent(this.twitter.url) : data.url ? encodeURIComponent(data.url) : before.twitter.url,
+      text: data.twitter.text === null ? null : data.twitter.text ? encodeURIComponent(this.twitter.text) : data.text ? encodeURIComponent(data.text) : before.twitter.text,
+      hash: data.twitter.hash ? encodeURIComponent(data.twitter.hash) : before.twitter.hash,
+      via: data.twitter.via ? encodeURIComponent(data.twitter.via) : before.twitter.via,
+      related: data.twitter.related ? encodeURIComponent(data.twitter.related) : before.twitter.related,
     };
-    this.facebook = data.facebook || before.facebook;
+    if(!data.facebook){
+      data.facebook = {};
+    }
     this.facebook = {
-      elem: this.facebook.elem || before.facebook.elem,
-      url: this.facebook.url ? encodeURIComponent(this.facebook.url) : before.facebook.url,
+      elem: data.facebook.elem || before.facebook.elem,
+      url: data.facebook.url ? encodeURIComponent(data.facebook.url) : data.url ? encodeURIComponent(data.url) : before.facebook.url,
     };
-    this.line = data.line || before.line;
+    if(!data.line){
+      data.line = {};
+    }
     this.line = {
-      elem: this.line.elem || before.line.elem,
-      url: this.line.url === null ? null : this.line.url ? encodeURIComponent(this.line.url) : before.line.url,
+      elem: data.line.elem || before.line.elem,
+      url: data.line.url ? encodeURIComponent(data.line.url) : data.url ? encodeURIComponent(data.url) : before.line.url,
     };
 
     this.URL = {
@@ -122,7 +131,5 @@ class ShareTextEmbedded{
     };
   }
 }
-
-export default ShareTextEmbedded;
 
 window.ShareTextEmbedded = ShareTextEmbedded;

@@ -139,8 +139,8 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 |:-----------|:-----------|:------------------------|
 | twitter | <object> | 'disable'でtwitterシェア文は生成されない |
 | elem | [data-share="twitter"] | 挿入箇所  class/id/data属性で指定 |
-| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用  |
-| text | common text | シェア文言、指定がない場合common textを使用  nullでテキストを空に |
+| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 nullでURL空に(TEXTが空の場合はエラー)|
+| text | common text | シェア文言、指定がない場合common textを使用  nullでテキストを空に(URLが空の場合はエラー)|
 | hash | false | ハッシュタグ 指定がない場合は表示しない  カンマで複数 |
 | via | false |  アカウント指定 指定がない場合は表示しない |
 | related | false | おすすめユーザー表示 指定がない場合は表示しない |
@@ -160,7 +160,7 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 |:-----------|:-----------|:------------------------|
 | line | <object> | 'disable'でLINEシェア文は生成されない |
 | elem | [data-share="line"] | 挿入箇所  class/id/data属性で指定 |
-| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 nullでURLを空に |
+| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 |
 
 ---
 
