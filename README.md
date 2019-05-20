@@ -33,7 +33,7 @@ npm i sharetext-embedded
 
 ```javascript
 // import
-import ShareTextEmbedded from 'sharetext-embedded';
+import {ShareTextEmbedded} from 'sharetext-embedded';
 ```
 
 ### Script Tags
