@@ -2,7 +2,7 @@
 # SNS_Share
 
 
-[![Build Status](https://travis-ci.org/W-Kentaro/ShareTextEmbedded.svg?branch=master)](https://travis-ci.org/W-Kentaro/ShareTextEmbedded) [![npm version](https://badge.fury.io/js/sns_share.svg)](https://www.npmjs.com/package/sns_share) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.org/W-Kentaro/sns_share.svg?branch=master)](https://travis-ci.org/W-Kentaro/sns_share) [![npm version](https://badge.fury.io/js/sns_share.svg)](https://www.npmjs.com/package/sns_share) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/sns_share.svg)](https://github.com/W-Kentaro/sns_share/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/sns_share.svg)](https://github.com/W-Kentaro/sns_share/blob/master/LICENSE) 
 
 ---
 
@@ -34,18 +34,18 @@ npm page => https://www.npmjs.com/package/sns_share
 
 ```
 //npm install
-npm i sharetext-embedded
+npm i sns_share
 ```
 
 ```javascript
 // import
-import 'sharetext-embedded';
+import 'sns_share';
 ```
 
 ### Script Tags
 
 ```html
-<script src="../dist/sharetext-embedded.min.js"></script>
+<script src="../dist/sns_share.min.js"></script>
 ```
 
 ---
@@ -71,7 +71,7 @@ SNSシェア文を自動エンコードして挿入します
 基本テンプレート  
 
 ```javascript
-var ShareText = new ShareTextEmbedded({
+var ShareText = new sns_share({
   url: 'URLを入れてください。',
   text: 'シェア文を入れてください。',
   hash: 'ハッシュタグ',
@@ -90,13 +90,13 @@ HTMLとJSに分けて管理
     }
 </script>
 
-var ShareText = new ShareTextEmbedded(share);
+var ShareText = new sns_share(share);
 ```
 
 最小テンプレート
 
 ```javascript
-var ShareText = new ShareTextEmbedded();
+var ShareText = new sns_share();
 ```
 
 data-shareに入れたSNSに対応するhrefを吐き出します    

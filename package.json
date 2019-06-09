@@ -1,6 +1,6 @@
 {
   "name": "sns_share",
-  "version": "0.1.75",
+  "version": "0.1.8",
   "description": "share text embedded (twitter/facebook/line)",
   "main": "./dist/sns_share.min.js",
   "scripts": {
