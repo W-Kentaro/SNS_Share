@@ -2,7 +2,7 @@
 # SNS_Share
 
 
-[![Build Status](https://travis-ci.org/W-Kentaro/ShareTextEmbedded.svg?branch=master)](https://travis-ci.org/W-Kentaro/ShareTextEmbedded) [![npm version](https://badge.fury.io/js/sharetext-embedded.svg)](https://badge.fury.io/js/sharetext-embedded) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.org/W-Kentaro/ShareTextEmbedded.svg?branch=master)](https://travis-ci.org/W-Kentaro/ShareTextEmbedded) [![npm version](https://badge.fury.io/js/sns_share.svg)](https://badge.fury.io/js/sharetext-embedded) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE) 
 
 ---
 
@@ -25,12 +25,12 @@ https://w-kentaro.github.io/SNS_Share/convert/
 
 ## Get Start
 
-download link => https://github.com/W-Kentaro/ShareTextEmbedded/archive/master.zip  
+download link => https://github.com/W-Kentaro/SNS_Share/archive/master.zip  
   
   
 ### npm  
 
-npm page => https://www.npmjs.com/package/sharetext-embedded  
+npm page => https://www.npmjs.com/package/sns_share  
 
 ```
 //npm install
@@ -110,22 +110,17 @@ data-shareに入れたSNSに対応するhrefを吐き出します
     init: true,
     url: 'URL',
     text:'share text',
-    hash: 'hash', // 複数の場合はカンマで区切る
+    hash: 'hash', 
     twitter: {
-      elem: 'element',
       url : 'URL',
-      text: 'share text',
-      hash: 'hash', // 複数の場合はカンマで区切る
       via: 'sample',
       related: 'sample' 
     },
     facebook: {
       elem: 'element',
-      url : 'URL',
     },
     line: {
       elem: 'element',
-      url : 'URL',
     }
   };
 ```
@@ -146,8 +141,6 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 | twitter | <object> | 'disable'でtwitterシェア文は生成されない |
 | elem | [data-share="twitter"] | 挿入箇所  class/id/data属性で指定 |
 | url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 nullでURL空に(TEXTが空の場合はエラー)|
-| text | common text | シェア文言、指定がない場合common textを使用  nullでテキストを空に(URLが空の場合はエラー)|
-| hash | false | ハッシュタグ 指定がない場合は表示しない  カンマで複数 |
 | via | false |  アカウント指定 指定がない場合は表示しない |
 | related | false | おすすめユーザー表示 指定がない場合は表示しない |
 
@@ -157,7 +150,6 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 |:-----------|:-----------|:------------------------|
 | facebook | <object> | 'disable'でfacebookシェア文は生成されない |
 | elem | [data-share="facebook"] | 挿入箇所  class/id/data属性で指定 |
-| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用  |
 
 
 #### LINE
@@ -166,7 +158,6 @@ data-shareに入れたSNSに対応するhrefを吐き出します
 |:-----------|:-----------|:------------------------|
 | line | <object> | 'disable'でLINEシェア文は生成されない |
 | elem | [data-share="line"] | 挿入箇所  class/id/data属性で指定 |
-| url | common url | シェアに埋め込まれるURL  指定がない場合はcommon urlを使用 |
 
 ---
 
