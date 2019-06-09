@@ -2,7 +2,7 @@
 # SNS_Share
 
 
-[![Build Status](https://travis-ci.org/W-Kentaro/ShareTextEmbedded.svg?branch=master)](https://travis-ci.org/W-Kentaro/ShareTextEmbedded) [![npm version](https://badge.fury.io/js/sns_share.svg)](https://badge.fury.io/js/sharetext-embedded) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.org/W-Kentaro/ShareTextEmbedded.svg?branch=master)](https://travis-ci.org/W-Kentaro/ShareTextEmbedded) [![npm version](https://badge.fury.io/js/sns_share.svg)](https://www.npmjs.com/package/sns_share) [![GitHub issues](https://img.shields.io/github/issues/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/issues)  [![GitHub license](https://img.shields.io/github/license/W-Kentaro/ShareTextEmbedded.svg)](https://github.com/W-Kentaro/ShareTextEmbedded/blob/master/LICENSE) 
 
 ---
 
