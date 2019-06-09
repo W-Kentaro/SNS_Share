@@ -144,9 +144,9 @@
             <hr>
             <div>
 
-              <p class="p-sample__text">
+              <p class="p-sample__text text-count">
                 <span class="p-sample__text-text" v-html="$options.filters.nl2br(text.text)"></span>
-                <span class="p-sample__text-url"> {{text.twitter.url !== '' ?text.twitter.url : text.url}}</span>
+                <span class="p-sample__text-url" v-show="!TwitterTextMode"> {{text.url}}</span>
                 <span class="p-sample__text-hash" v-show="text.hash !== ''"> #{{text.hash|hash}}</span>
                 <span class="p-sample__text-via" v-show="text.twitter.via && text.twitter.via !== ''"> @{{text.twitter.via}}さんから</span>
               </p>
@@ -215,7 +215,7 @@
         },
         text: {
           url: 'https://github.com/W-Kentaro/SNS_Share',
-          text: 'share text is Here\ntext prop only use twitter',
+          text: 'share text is Here\ntext prop only use twitter😂',
           hash: 'hash1,hash2,hash3',
           twitter: {
             url: undefined,
