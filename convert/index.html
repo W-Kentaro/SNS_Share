@@ -147,7 +147,7 @@
               <p class="p-sample__text text-count">
                 <span class="p-sample__text-text" v-html="$options.filters.nl2br(text.text)"></span>
                 <span class="p-sample__text-url" v-show="!TwitterTextMode"> {{text.url}}</span>
-                <span class="p-sample__text-hash" v-show="text.hash !== ''"> #{{text.hash|hash}}</span>
+                <span class="p-sample__text-hash" v-show="text.hash && text.hash !== ''"> #{{text.hash|hash}}</span>
                 <span class="p-sample__text-via" v-show="text.twitter.via && text.twitter.via !== ''"> @{{text.twitter.via}}さんから</span>
               </p>
               <hr>
@@ -281,7 +281,9 @@
           return str.replace(/\r\n/g, '<br>').replace(/(\n|\r)/g, '<br>');
         },
         hash: function (str) {
-          return str.replace(/,/g, ' #');
+          if(str){
+            return str.replace(/,/g, ' #');
+          }
         },
         JSONStringify: function (obj) {
           return JSON.stringify(obj, null, 2).replace(/\'/g, '\\\'').replace(/\"/g, '\'');
@@ -312,6 +314,8 @@
         },
         shareUpdate(obj) {
           Share.update(obj);
+          console.log(obj);
+          console.log(Share);
           Share.init();
           this.url = {
             twitter: Share.URL.twitter,

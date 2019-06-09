@@ -102,13 +102,14 @@ export class sns_share{
     if(!data.twitter){
       data.twitter = {};
     }
+
     this.twitter = {
       elem: data.twitter.elem ? data.twitter.elem : before.twitter.elem,
       url: data.twitter.url === null ? null : data.twitter.url ? encodeURIComponent(this.twitter.url) : data.url ? encodeURIComponent(data.url) : before.twitter.url,
       text: data.twitter.text === null ? null : data.twitter.text ? encodeURIComponent(this.twitter.text) : data.text ? encodeURIComponent(data.text) : before.twitter.text,
-      hash: data.twitter.hash ? encodeURIComponent(data.twitter.hash) : data.hash ? encodeURIComponent(data.hash) : before.twitter.hash,
-      via: data.twitter.via ? encodeURIComponent(data.twitter.via) : before.twitter.via,
-      related: data.twitter.related ? encodeURIComponent(data.twitter.related) : before.twitter.related,
+      hash: data.twitter.hash || data.twitter.hash === '' ? encodeURIComponent(data.twitter.hash) : data.hash || data.hash === '' ? encodeURIComponent(data.hash) : before.twitter.hash,
+      via: data.twitter.via && data.twitter.via === '' ? encodeURIComponent(data.twitter.via) : before.twitter.via,
+      related: data.twitter.related && data.twitter.related === '' ? encodeURIComponent(data.twitter.related) : before.twitter.related,
     };
     if(!data.facebook){
       data.facebook = {};
