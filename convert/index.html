@@ -94,22 +94,22 @@
           <ul>
             <li class="form-group">
               <label class="bmd-label-floating" for="url">Share URL</label>
-              <input v-model.trim="text.url" type="text" id="url" class="form-control">
+              <input @focus="formClear('url')" v-model.trim="text.url" type="text" id="url" class="form-control">
             </li>
             <li class="form-group">
               <label class="bmd-label-floating" for="text">Share Text</label>
-              <textarea v-model="text.text" id="text" class="form-control" rows="4"></textarea>
+              <textarea @focus="formClear('text')" v-model="text.text" id="text" class="form-control" rows="4"></textarea>
             </li>
             <li class="form-group">
               <label class="bmd-label-floating">Share Hash</label>
-              <input v-model.trim="text.hash" class="form-control" type="text">
+              <input @focus="formClear('hash')" v-model.trim="text.hash" class="form-control" type="text">
             </li>
           </ul>
         </div>
         <div class="p-form__block">
           <h3>Twitter<span class="switch">
             <label>
-              <input type="checkbox" v-model="TwitterTextMode">
+              <input type="checkbox" @focus="formClear()" v-model="TwitterTextMode">
               Text Mode
             </label>
           </span>
@@ -117,11 +117,11 @@
           <ul>
             <li class="form-group">
               <label class="bmd-label-floating">Twitter Share Via Account</label>
-              <input v-model.trim="text.twitter.via" class="form-control" type="text">
+              <input @focus="formClear()" v-model.trim="text.twitter.via" class="form-control" type="text">
             </li>
             <li class="form-group">
               <label class="bmd-label-floating">Twitter Share Related Account</label>
-              <input v-model.trim="text.twitter.related" class="form-control" type="text">
+              <input @focus="formClear()" v-model.trim="text.twitter.related" class="form-control" type="text">
             </li>
           </ul>
         </div>
@@ -212,6 +212,11 @@
         TwitterTextMode: false,
         backup: {
           TwitterUrl: undefined
+        },
+        formClearInit: {
+          url: false,
+          text: false,
+          hash: false,
         },
         text: {
           url: 'https://github.com/W-Kentaro/SNS_Share',
@@ -307,6 +312,28 @@
         }
       },
       methods: {
+        formClear: function (type) {
+          switch(type){
+            case 'url':
+              if(!this.formClearInit.url){
+                this.text.url = '';
+                this.formClearInit.url = true;
+              }
+              break;
+            case 'text':
+              if(!this.formClearInit.text){
+                this.text.text = '';
+                this.formClearInit.text = true;
+              }
+              break;
+            case 'hash':
+              if(!this.formClearInit.hash){
+                this.text.hash = '';
+                this.formClearInit.hash = true;
+              }
+              break;
+          }
+        },
         shareUpdate(obj) {
           Share.update(obj);
           Share.init();
