@@ -246,26 +246,14 @@
           }
           this.shareUpdate(this.text);
         },
-        twitterVia(val, oldVal) {
-          this.text.twitter.via = val !== '' ? val : undefined;
-        },
         twitterUrl(val, oldVal) {
           this.text.twitter.url = val !== '' ? val : undefined;
         },
-        twitterText(val, oldVal) {
-          this.text.twitter.text = val !== '' ? val : undefined;
-        },
-        twitterHash(val, oldVal) {
-          this.text.twitter.hash = val !== '' ? val : undefined;
+        twitterVia(val, oldVal) {
+          this.text.twitter.via = val !== '' ? val : undefined;
         },
         twitterRelate(val, oldVal) {
           this.text.twitter.related = related !== '' ? related : undefined;
-        },
-        facebookUrl(val, oldVal) {
-          this.text.facebook.url = val !== '' ? val : undefined;
-        },
-        lineUrl(val, oldVal) {
-          this.text.line.url = val !== '' ? val : undefined;
         },
         text: {
           handler: function (val, oldVal) {
@@ -278,23 +266,11 @@
         twitterUrl() {
           return this.text.twitter.url;
         },
-        twitterText() {
-          return this.text.twitter.text;
-        },
-        twitterHash() {
-          return this.text.twitter.hash;
-        },
         twitterVia() {
           return this.text.twitter.via;
         },
         twitterRelate() {
           return this.text.twitter.related;
-        },
-        facebookUrl() {
-          return this.text.facebook.url;
-        },
-        lineUrl() {
-          return this.text.line.url;
         },
       },
       created: function () {
