@@ -4,7 +4,7 @@
 * https://opensource.org/licenses/mit-license.php
 */
 
-export class ShareTextEmbedded{
+export class sns_share{
   constructor(data = false) {
     this.GetOG = {
       url: '',
@@ -93,7 +93,6 @@ export class ShareTextEmbedded{
       facebook: this.facebook,
       line: this.line,
     };
-    console.log(data);
     this.url = data.url || before.url;
 
     this.text = data.text || before.text;
@@ -103,7 +102,7 @@ export class ShareTextEmbedded{
     }
     this.twitter = {
       elem: data.twitter.elem ? data.twitter.elem : before.twitter.elem,
-      url: data.twitter.url ? encodeURIComponent(this.twitter.url) : data.url ? encodeURIComponent(data.url) : before.twitter.url,
+      url: data.twitter.url === null ? null : data.twitter.url ? encodeURIComponent(this.twitter.url) : data.url ? encodeURIComponent(data.url) : before.twitter.url,
       text: data.twitter.text === null ? null : data.twitter.text ? encodeURIComponent(this.twitter.text) : data.text ? encodeURIComponent(data.text) : before.twitter.text,
       hash: data.twitter.hash ? encodeURIComponent(data.twitter.hash) : before.twitter.hash,
       via: data.twitter.via ? encodeURIComponent(data.twitter.via) : before.twitter.via,
@@ -125,11 +124,13 @@ export class ShareTextEmbedded{
     };
 
     this.URL = {
-      twitter: `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
+      twitter: this.twitter.url === null ?
+        `https://twitter.com/intent/tweet?text=${this.twitter.text}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}` :
+        `http://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
       facebook: `http://www.facebook.com/sharer.php?u=${this.facebook.url}`,
       line: `https://social-plugins.line.me/lineit/share?url=${this.line.url}`,
     };
   }
 }
 
-window.ShareTextEmbedded = ShareTextEmbedded;
+window.sns_share = sns_share;

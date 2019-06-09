@@ -1,0 +1,330 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video{
+  font-size: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  vertical-align: baseline;
+
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+body{
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section{
+  display: block;
+}
+
+nav ul{
+  list-style: none;
+}
+
+blockquote,
+q{
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after{
+  content: '';
+  content: none;
+}
+
+a{
+  font-size: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  vertical-align: baseline;
+
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins{
+  text-decoration: none;
+
+  color: #000;
+  background-color: #ff9;
+}
+
+/* change colours to suit your needs */
+mark{
+  font-weight: bold;
+  font-style: italic;
+
+  color: #000;
+  background-color: #ff9;
+}
+
+del{
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title]{
+  cursor: help;
+
+  border-bottom: 1px dotted;
+}
+
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* change border colour to suit your needs */
+hr{
+  display: block;
+
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+input,
+select{
+  vertical-align: middle;
+}
+
+html{
+  text-align: center;
+}
+
+body{
+  font-family: 'Source Sans Pro', 'Noto Sans JP', sans-serif;;
+}
+
+pre{
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+h1{
+  font-size: 36px !important;
+  font-weight: 300;
+  font-family: 'Ubuntu', sans-serif !important;
+  letter-spacing: 1px;
+  margin-bottom: 26px;
+}
+
+h2{
+  font-size: 22px;
+  font-weight: 300;
+
+  margin-bottom: 18px;
+}
+
+li{
+  list-style: none;
+}
+
+.github-list{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  margin: 24px 0;
+
+}
+
+.github-list li{
+  margin: 0 8px;
+}
+
+.share-list{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  margin: 24px 0;
+
+  -webkit-box-pack: center;
+
+  -webkit-justify-content: center;
+
+  -ms-flex-pack: center;
+
+  justify-content: center;
+}
+
+.l-wrap{
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.l-wrap__container{
+}
+
+h3{
+  font-family: 'Ubuntu', sans-serif !important;
+  margin-bottom: 24px;
+}
+
+.p-form{
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-form__input{
+  width: 49%;
+}
+
+.p-form__output{
+  width: 49%;
+  border: 1px solid #666;
+  background: #f2f2f2;
+  padding: 40px;
+}
+
+.p-form__block{
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.p-form__block h3{
+  position: relative;
+}
+
+.p-form__block .switch{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 30px;
+}
+
+ul{
+}
+
+li{
+  margin-bottom: 14px;
+}
+
+.p-sample{
+
+}
+
+.p-sample__url{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p-sample__block{
+  margin-bottom: 52px;
+}
+
+@media screen and (max-width: 960px){
+  .p-form{
+    flex-direction: column;
+  }
+
+  .p-form__input{
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .p-form__output{
+    width: 100%;
+  }
+
+}

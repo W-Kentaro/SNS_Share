@@ -1,8 +1,8 @@
 {
-  "name": "sharetext-embedded",
-  "version": "0.1.61",
+  "name": "sns_share",
+  "version": "0.1.7",
   "description": "share text embedded (twitter/facebook/line)",
-  "main": "./src/sharetext-embedded.js",
+  "main": "./dist/sns_share.min.js",
   "scripts": {
     "start": "npm install && npm run develop",
     "develop": "npm-run-all -p build:webpack server",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/W-Kentaro/ShareTextEmbedded.git"
+    "url": "git+https://github.com/W-Kentaro/SNS_Share.git"
   },
   "keywords": [
     "share",
@@ -22,9 +22,9 @@
   "author": "W-Kentaro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/W-Kentaro/ShareTextEmbedded/issues"
+    "url": "https://github.com/W-Kentaro/SNS_Share/issues"
   },
-  "homepage": "https://github.com/W-Kentaro/ShareTextEmbedded",
+  "homepage": "https://github.com/W-Kentaro/SNS_Share",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",

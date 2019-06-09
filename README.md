@@ -33,7 +33,7 @@ npm i sharetext-embedded
 
 ```javascript
 // import
-import {ShareTextEmbedded} from 'sharetext-embedded';
+import 'sharetext-embedded';
 ```
 
 ### Script Tags
@@ -45,7 +45,7 @@ import {ShareTextEmbedded} from 'sharetext-embedded';
 ---
 ## DEMOS
 
-sample page => https://w-kentaro.github.io/ShareTextEmbedded/sample/  
+sample page => https://github.com/W-Kentaro/SNS_Share/sample/  
   
 ---
 
@@ -189,7 +189,7 @@ ShareText.init();
 ```javascript
 Sharetext.update({data});
 ```
-[DEMO](https://w-kentaro.github.io/ShareTextEmbedded/sample/#update)    
+[DEMO](https://github.com/W-Kentaro/SNS_Share/sample/#update)    
 
 シェアの内容をdataの中身で上書き、  
 init()しないとurlの変更はされません。  

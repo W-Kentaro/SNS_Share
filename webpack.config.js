@@ -2,10 +2,10 @@ const webpack = require('webpack');
 
 const config = {
   mode: 'production',
-  entry: './src/sharetext-embedded.js',
+  entry: './src/sns_share.js',
   output: {
     path: `${__dirname}/dist`,
-    filename: 'sharetext-embedded.min.js',
+    filename: 'sns_share.min.js',
   },
   module: {
     rules: [
