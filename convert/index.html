@@ -253,7 +253,7 @@
           this.text.twitter.via = val !== '' ? val : undefined;
         },
         twitterRelate(val, oldVal) {
-          this.text.twitter.related = related !== '' ? related : undefined;
+          this.text.twitter.related = val !== '' ? val : undefined;
         },
         text: {
           handler: function (val, oldVal) {
@@ -313,6 +313,7 @@
           }
         },
         shareUpdate(obj) {
+          console.log(obj);
           Share.update(obj);
           Share.init();
           this.url = {
