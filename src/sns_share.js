@@ -49,7 +49,7 @@ export class sns_share{
     this.URL = {
       twitter: this.twitter.url === null ?
         `https://twitter.com/intent/tweet?text=${this.twitter.text}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}` :
-        `https://twitter.com/share?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
+        `https://twitter.com/intent/tweet?url=${this.twitter.url}${this.twitter.text === null ? '' : `&text=${this.twitter.text}`}${this.twitter.hash ? '&hashtags=' + this.twitter.hash : ''}${this.twitter.via ? '&via=' + this.twitter.via : ''}${this.twitter.related ? '&related=' + this.twitter.related : ''}`,
       facebook: `https://www.facebook.com/sharer.php?u=${this.facebook.url}`,
       line: `https://social-plugins.line.me/lineit/share?url=${this.line.url}`,
     };

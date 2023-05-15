@@ -1,6 +1,6 @@
 {
   "name": "sns_share",
-  "version": "0.1.9",
+  "version": "0.1.95",
   "description": "share text embedded (twitter/facebook/line)",
   "main": "./dist/sns_share.min.js",
   "scripts": {
@@ -35,5 +35,8 @@
     "npm-run-all": "^4.1.2",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1"
+  },
+  "volta": {
+    "node": "10.24.1"
   }
 }
