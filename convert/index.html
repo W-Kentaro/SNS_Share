@@ -30,8 +30,8 @@
   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
   <script>$(document).ready(function () {
-    $('body').bootstrapMaterialDesign();
-  });</script>
+      $('body').bootstrapMaterialDesign();
+    });</script>
 </head>
 <body>
 
@@ -42,31 +42,31 @@
     <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
   </svg>
 </a>
-<style>.github-corner:hover .octo-arm{
-  animation: octocat-wave 560ms ease-in-out
-}
-
-@keyframes octocat-wave{
-  0%, 100%{
-    transform: rotate(0)
-  }
-  20%, 60%{
-    transform: rotate(-25deg)
-  }
-  40%, 80%{
-    transform: rotate(10deg)
-  }
-}
-
-@media (max-width: 500px){
-  .github-corner:hover .octo-arm{
-    animation: none
-  }
-
-  .github-corner .octo-arm{
+<style>.github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
-}</style>
+
+  @keyframes octocat-wave {
+    0%, 100% {
+      transform: rotate(0)
+    }
+    20%, 60% {
+      transform: rotate(-25deg)
+    }
+    40%, 80% {
+      transform: rotate(10deg)
+    }
+  }
+
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+      animation: none
+    }
+
+    .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+  }</style>
 <div class="l-wrap ">
   <div class="l-wrap__container container-fluid">
 
@@ -96,32 +96,14 @@
               <label class="bmd-label-floating" for="url">Share URL</label>
               <input @focus="formClear('url')" v-model.trim="text.url" type="text" id="url" class="form-control">
             </li>
-            <li class="form-group">
-              <label class="bmd-label-floating" for="text">Share Text</label>
-              <textarea @focus="formClear('text')" v-model="text.text" id="text" class="form-control" rows="4"></textarea>
-            </li>
-            <li class="form-group">
-              <label class="bmd-label-floating">Share Hash</label>
-              <input @focus="formClear('hash')" v-model.trim="text.hash" class="form-control" type="text">
-            </li>
           </ul>
         </div>
         <div class="p-form__block">
-          <h3>Twitter<span class="switch">
-            <label>
-              <input type="checkbox" @focus="formClear()" v-model="TwitterTextMode">
-              Text Mode
-            </label>
-          </span>
-          </h3>
+          <h3>Twitter</h3>
           <ul>
             <li class="form-group">
-              <label class="bmd-label-floating">Twitter Share Via Account</label>
-              <input @focus="formClear()" v-model.trim="text.twitter.via" class="form-control" type="text">
-            </li>
-            <li class="form-group">
-              <label class="bmd-label-floating">Twitter Share Related Account</label>
-              <input @focus="formClear()" v-model.trim="text.twitter.related" class="form-control" type="text">
+              <label class="bmd-label-floating" for="text">Share Text</label>
+              <textarea style="line-height: 1.5;" @focus="formClear('text')" v-model="text.text" id="text" class="form-control" rows="4"></textarea>
             </li>
           </ul>
         </div>
@@ -146,13 +128,10 @@
 
               <p class="p-sample__text text-count">
                 <span class="p-sample__text-text" v-html="$options.filters.nl2br(text.text)"></span>
-                <span class="p-sample__text-url" v-show="!TwitterTextMode"> {{text.url}}</span>
-                <span class="p-sample__text-hash" v-show="text.hash && text.hash !== ''"> #{{text.hash|hash}}</span>
-                <span class="p-sample__text-via" v-show="text.twitter.via && text.twitter.via !== ''"> @{{text.twitter.via}}さんから</span>
               </p>
               <hr>
               <p class="p-sample__url">
-                <a href="" data-share="twitter" target="_blank" rel="noopener noreferrer">{{url.twitter}}</a>
+                <a href="" data-share="twitter" target="_blank" rel="noopener noreferrer">{{ url.twitter }}</a>
               </p>
               <button class="clip-btn btn btn-raised btn-primary" :data-clipboard-text="url.twitter">
                 Copy
@@ -164,7 +143,7 @@
             <hr>
             <div>
               <p class="p-sample__url">
-                <a href="" data-share="facebook" target="_blank" rel="noopener noreferrer">{{url.facebook}}</a>
+                <a href="" data-share="facebook" target="_blank" rel="noopener noreferrer">{{ url.facebook }}</a>
               </p>
               <button class="clip-btn btn btn-raised btn-primary" :data-clipboard-text="url.facebook">
                 Copy
@@ -176,7 +155,7 @@
             <hr>
             <div>
               <p class="p-sample__url">
-                <a href="" data-share="line" target="_blank" rel="noopener noreferrer">{{url.line}}</a>
+                <a href="" data-share="line" target="_blank" rel="noopener noreferrer">{{ url.line }}</a>
               </p>
               <button class="clip-btn btn btn-raised btn-primary" :data-clipboard-text="url.line">
                 Copy
@@ -185,7 +164,7 @@
           </div>
           <div class="p-sample__block">
             <h3>SNS Share Instance</h3>
-            <pre>  const Share = new sns_share(<span>{{text | JSONStringify}}</span>);</pre>
+            <pre>  const Share = new sns_share(<span>{{ text | JSONStringify }}</span>);</pre>
           </div>
 
         </div>
@@ -211,7 +190,7 @@
       data: {
         TwitterTextMode: false,
         backup: {
-          TwitterUrl: undefined
+          TwitterUrl: undefined,
         },
         formClearInit: {
           url: false,
@@ -219,9 +198,12 @@
           hash: false,
         },
         text: {
-          url: 'https://github.com/W-Kentaro/SNS_Share',
-          text: 'share text is Here:D\ntext prop use only twitter😂',
-          hash: 'hash1,hash2,hash3',
+          url: '',
+          text: `share text is Here:D
+text prop use only twitter😂
+https://github.com/W-Kentaro/SNS_Share
+#hash1 #hash2 #hash3`,
+          hash: '',
           twitter: {
             url: undefined,
             via: undefined,
@@ -233,8 +215,8 @@
         url: {
           twitter: Share.URL.twitter,
           facebook: Share.URL.facebook,
-          line: Share.URL.line
-        }
+          line: Share.URL.line,
+        },
       },
       watch: {
         TwitterTextMode: function (val, oldVal) {
@@ -259,8 +241,11 @@
           handler: function (val, oldVal) {
             this.shareUpdate(val);
           },
-          deep: true
+          deep: true,
         },
+      },
+      mounted() {
+        this.TwitterTextMode = true;
       },
       computed: {
         twitterUrl() {
@@ -287,7 +272,7 @@
         },
         JSONStringify: function (obj) {
           return JSON.stringify(obj, null, 2).replace(/\'/g, '\\\'').replace(/\"/g, '\'');
-        }
+        },
       },
       methods: {
         formClear: function (type) {
@@ -319,10 +304,10 @@
           this.url = {
             twitter: Share.URL.twitter,
             facebook: Share.URL.facebook,
-            line: Share.URL.line
+            line: Share.URL.line,
           };
-        }
-      }
+        },
+      },
     })
   ;
 </script>
