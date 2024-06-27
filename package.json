@@ -4,8 +4,8 @@
   "description": "share text embedded (twitter/facebook/line)",
   "main": "./dist/sns_share.min.js",
   "scripts": {
-    "start": "npm install && npm run develop",
-    "develop": "npm-run-all -p build:webpack server",
+    "start": "npm install && webpack",
+    "develop": "webpack",
     "server": "browser-sync start --server ./ --directory ./sample --files **/*.css **/*.js **/*.html",
     "build:webpack": "webpack --progress --colors --watch"
   },
